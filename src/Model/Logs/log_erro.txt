@@ -1,0 +1,354 @@
+===============================================================================
+Data do Erro: 12/03/2025
+Hora do Erro: 15:18
+Código Logado: 1
+Função do Erro: ExcluirTipoEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_equipamento`, CONSTRAINT `fk_tb_equipamento_tb_tipo1` FOREIGN KEY (`tipo_id`) REFERENCES `tb_tipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 19/03/2025
+Hora do Erro: 15:49
+Código Logado: 1
+Função do Erro: AlterarEquipamento
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 19/03/2025
+Hora do Erro: 15:50
+Código Logado: 1
+Função do Erro: AlterarEquipamento
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 19/03/2025
+Hora do Erro: 15:50
+Código Logado: 1
+Função do Erro: AlterarEquipamento
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 19/03/2025
+Hora do Erro: 16:02
+Código Logado: 1
+Função do Erro: AlterarEquipamento
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 16/04/2025
+Hora do Erro: 17:11
+Código Logado: 1
+Função do Erro: DescartarEquipamento
+Erro Ténico: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE id = '4'' at line 1
+===============================================================================
+Data do Erro: 23/04/2025
+Hora do Erro: 17:39
+Código Logado: 1
+Função do Erro: CadastrarEquipamento
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 07/05/2025
+Hora do Erro: 17:15
+Código Logado: 1
+Função do Erro: AlocarEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 14/05/2025
+Hora do Erro: 20:25
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 14/05/2025
+Hora do Erro: 20:39
+Código Logado: 1
+Função do Erro: ExcluirSetorUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 21/05/2025
+Hora do Erro: 16:31
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 21/05/2025
+Hora do Erro: 18:28
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 21/05/2025
+Hora do Erro: 18:34
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 21/05/2025
+Hora do Erro: 18:35
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 21/05/2025
+Hora do Erro: 18:35
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 21/05/2025
+Hora do Erro: 18:35
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 28/05/2025
+Hora do Erro: 16:54
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 28/05/2025
+Hora do Erro: 16:59
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 28/05/2025
+Hora do Erro: 17:03
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 28/05/2025
+Hora do Erro: 17:06
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 28/05/2025
+Hora do Erro: 17:13
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 28/05/2025
+Hora do Erro: 17:15
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 28/05/2025
+Hora do Erro: 17:27
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 28/05/2025
+Hora do Erro: 17:30
+Código Logado: 1
+Função do Erro: ExcluirEquipamento
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_equipamento1` FOREIGN KEY (`equipamento_id`) REFERENCES `tb_equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 05/06/2025
+Hora do Erro: 20:52
+Código Logado: 1
+Função do Erro: ExcluirSetorUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+===============================================================================
+Data do Erro: 16/07/2025
+Hora do Erro: 08:41
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 16/07/2025
+Hora do Erro: 08:42
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 16:19
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 16:21
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:08
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:08
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:11
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:16
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:19
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:20
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:23
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:25
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:25
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:26
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:29
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:29
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:30
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'senha_usuario' in 'field list'
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:31
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ci.id_cidade' in 'field list'
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:32
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ci.id_cidade' in 'field list'
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:33
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ci.id_cidade' in 'field list'
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:35
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'es.estado_id' in 'on clause'
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:36
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'es.estado_id' in 'on clause'
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:36
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:41
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_controle_os`.`tb_endereco`, CONSTRAINT `fk_tb_endereco_tb_usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `tb_usuario` (`id`))
+===============================================================================
+Data do Erro: 23/07/2025
+Hora do Erro: 17:43
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_controle_os`.`tb_endereco`, CONSTRAINT `fk_tb_endereco_tb_usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `tb_usuario` (`id`))
+===============================================================================
+Data do Erro: 28/07/2025
+Hora do Erro: 16:02
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_setor' in 'field list'
+===============================================================================
+Data do Erro: 28/07/2025
+Hora do Erro: 16:05
+Código Logado: 1
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'cidade_id' cannot be null
+===============================================================================
+Data do Erro: 28/07/2025
+Hora do Erro: 17:27
+Código Logado: 1
+Função do Erro: ExcluirSetorUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_funcionario`, CONSTRAINT `fk_tb_funcionario_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`))
+===============================================================================
+Data do Erro: 2025-07-28
+Hora do Erro: 17:31
+Código Logado: 1
+Função do Erro: ExcluirSetorUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_funcionario`, CONSTRAINT `fk_tb_funcionario_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`))
+===============================================================================
+Data do Erro: 2025-07-28
+Hora do Erro: 17:34
+Código Logado: 1
+Função do Erro: ExcluirSetorUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_funcionario`, CONSTRAINT `fk_tb_funcionario_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`))
+===============================================================================
+Data do Erro: 2025-07-28
+Hora do Erro: 17:35
+Código Logado: 1
+Função do Erro: ExcluirSetorUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`))
+===============================================================================
+Data do Erro: 2025-07-28
+Hora do Erro: 17:38
+Código Logado: 1
+Função do Erro: ExcluirSetorUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`))
+===============================================================================
+Data do Erro: 2025-07-28
+Hora do Erro: 17:42
+Código Logado: 1
+Função do Erro: ExcluirSetorUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`))
+===============================================================================
+Data do Erro: 2025-08-05
+Hora do Erro: 17:04
+Código Logado: 1
+Função do Erro: ExcluirSetorUsuario
+Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`))
