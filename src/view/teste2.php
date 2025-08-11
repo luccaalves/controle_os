@@ -15,3 +15,5 @@ echo strlen($senha_criptografada);
 // }
 
 echo " $senha_criptografada";
+
+echo "TESTE";
