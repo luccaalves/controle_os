@@ -5,8 +5,8 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
 <html>
 
 <head>
-  <?php include_once PATH . 'template/includes/_head.php'; ?>
-  <title>Cadastrar Novo Usuário</title>
+    <title>Cadastrar Novo Usuário</title>
+    <?php include_once PATH . 'template/includes/_head.php'; ?>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -80,7 +80,6 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
                     <label>Selecione um Setor</label>
                     <select class="form-control obg " name="setor" id="setor">
                       <option value="">Selecione</option>
-                      <option value="1">Teste</option>
                     </select>
                   </div>
                 </div>

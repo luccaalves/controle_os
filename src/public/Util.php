@@ -4,10 +4,47 @@ namespace Src\public;
 
 class Util
 {
-    public static function UsuarioLogado()
+    public static function IniciarSessao(): void
     {
-        // Essa function por enquanto fará de forma simulada o acesso de um Usuario na aplicação.
-        return 1;
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+    }
+
+    public static function CriarSessao(int $id, string $nome): void
+    {
+        self::IniciarSessao();
+
+        $_SESSION['cod'] = $id;
+        $_SESSION['nome'] = $nome;
+    }
+
+
+    public static function UsuarioLogado(): int
+    {
+        self::IniciarSessao();
+        return $_SESSION['cod'];
+    }
+
+    public static function NomeLogado(): string
+    {
+        self::IniciarSessao();
+        return $_SESSION['nome'];
+    }
+
+    public static function Deslogar()
+    {
+        unset($_SESSION['cod']);
+        unset($_SESSION['nome']);
+        self::ChamarPagina('http://localhost/src/view/acesso/login.php');
+    }
+
+    public static function VerificarLogado()
+    {
+        self::IniciarSessao();
+        if (!isset($_SESSION['cod']) || empty($_SESSION['cod'])) {
+            self::ChamarPagina('http://localhost/src/view/acesso/login.php');
+        }
     }
 
 

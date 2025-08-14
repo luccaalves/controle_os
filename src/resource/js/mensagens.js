@@ -17,5 +17,7 @@ function MostrarMensagem(ret){
         toastr.error('E-MAIL inválido!');
     }else if(ret == -6){
         toastr.error('Esse E-MAIL já é cadastrado!');
+    }else if(ret == -7){
+        toastr.error('Usuário não encontrado!')
     }
 }

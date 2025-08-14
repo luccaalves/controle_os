@@ -1,10 +1,8 @@
 <?php
 
-use Src\public\Util;
+    use Src\public\Util;
 
-include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
-
-
+    include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
 
 ?>
 
@@ -13,21 +11,21 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
 
 <head>
     <title>Alterar Usuário Cadastrado.</title>
-    <?php include_once PATH . 'template/includes/_head.php'; ?>
+    <?php include_once PATH . './template/includes/_head.php'; ?>
 </head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <?php
-        include_once PATH . 'template/includes/_topo.php';
-        include_once PATH . 'template/includes/_menu.php';
+        include_once PATH . './template/includes/_topo.php';
+        include_once PATH . './template/includes/_menu.php';
         ?>
         <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Alterar Usuário Cadastrado</h1>
+                            <h1>Alterar Usuário Cadastrado..</h1>
                         </div>
                     </div>
             </section>
@@ -44,7 +42,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
                             <input type="hidden" id="tipoUsuario" value="<?= $dados['tipo_usuario'] ?>">
 
                             <div class="form-group">
-                                <label>Tipo Usuário: <?= Util::MostrarTipoUsuario($dados['tipo_usuario']) ?></label>
+                                <label>Tipo Usuário: <?= Util::MostrarTipoUsuario($dados['tipo_usuario']) ?>.</label>
                             </div>
 
                             <!-- Dados do Usuário! -->
@@ -85,17 +83,16 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
                                 <div class="card" style="display: none;"></div>
                             <?php } else { ?>
                                 <div class="card" style="padding: 12px;">
-                                    <?php if($dados['tipo_usuario'] == USUARIO_FUNCIONARIO) { ?>
-                                        <div class="form-group">
-                                            <label for="setor">Setor:</label>
-                                            <select class="form-control" id="setor" name="setor">
-                                                <?php
-                                                foreach ($setores as $item) { ?>
-                                                    <option value="<?= $item['id'] ?> <?php $item['id'] == $dados['id'] ? 'selected' : '' ?>"><?= $item['nome_setor'] ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    <?php } ?>
+                                    <div class="form-group">
+                                        <label for="setor">Setor:</label>
+                                        <select class="form-control obg" name="setor" id="setor">
+                                            <?php foreach ($setores as $item) { ?>
+                                                <option value="<?= $item['id_setor'] ?>" <?= $item['id_setor'] == $dados['id_setor'] ? 'selected' : '' ?>>
+                                                    <?= $item['nome_setor'] ?>
+                                                </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
                                 </div>
                             <?php } ?>
 
@@ -107,7 +104,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
                                     <?php if ($dados['tipo_usuario'] == USUARIO_TECNICO) { ?>
                                         <div class="form-group">
                                             <label>Nome da Empresa:</label>
-                                            <input type="text" class="form-control" placeholder="Clique e Digite aqui..." name="nomeEmp" id="nomeEmp" value="<?= $dados['nome_empresa'] ?>">
+                                            <input type="text" class="form-control obg" placeholder="Clique e Digite aqui..." name="nomeEmp" id="nomeEmp" value="<?= $dados['nome_empresa'] ?>">
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -159,17 +156,17 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
             </section>
         </div>
 
-        <?php include_once PATH . 'template/includes/_footer.php'; ?>
+        <?php include_once PATH . './template/includes/_footer.php'; ?>
     </div>
 
     <?php
-    include_once PATH . 'template/includes/_scripts.php';
-    include_once PATH . 'template/includes/_msg.php';
+    include_once PATH . './template/includes/_scripts.php';
+    include_once PATH . './template/includes/_msg.php';
     ?>
 
     <!-- Chamada do Javascript de Busca de CEP! -->
     <script src="../../resource/ajax/usuario_ajax.js"></script>
-    <script src="../../resource/ajax/setor_usuario_ajax.js"></script>
+    <script src="../../resource/ajax/setor_ajax.js"></script>
     <script src="../../resource/js/buscar_cep.js"></script>
     <script src="../../template/mask/jquery.mask.min.js"></script>
     <script src="../../template/mask/mask.js"></script>
