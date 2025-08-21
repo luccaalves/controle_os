@@ -1,7 +1,7 @@
 <?php
 include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
 
-use SRC\public\Util;
+use Src\public\Util;
 
 Util::VerificarLogado();
 

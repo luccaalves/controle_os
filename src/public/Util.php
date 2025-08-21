@@ -44,7 +44,7 @@ class Util
     {
         self::IniciarSessao();
         if (!isset($_SESSION['cod']) || empty($_SESSION['cod'])) {
-            self::ChamarPagina('http://localhost/src/view/acesso/login.php');
+            self::ChamarPagina('http://localhost/src/view/acesso/login');
         }
     }
 
