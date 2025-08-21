@@ -166,7 +166,7 @@
 
     <!-- Chamada do Javascript de Busca de CEP! -->
     <script src="../../resource/ajax/usuario_ajax.js"></script>
-    <script src="../../resource/ajax/setor_ajax.js"></script>
+    <script src="../../resource/ajax/setor_usuario_ajax.js"></script>
     <script src="../../resource/js/buscar_cep.js"></script>
     <script src="../../template/mask/jquery.mask.min.js"></script>
     <script src="../../template/mask/mask.js"></script>

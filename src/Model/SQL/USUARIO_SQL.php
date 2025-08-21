@@ -4,7 +4,7 @@
 
     class USUARIO_SQL{
         public static function VALIDAR_LOGIN_SQL(){
-            $sql = 'SELECT id, email_usuario, senha_usuario FROM tb_usuario WHERE cpf_usuario = ? AND status_usuario = ?;';
+            $sql = 'SELECT id, email_usuario, cpf_usuario FROM tb_usuario WHERE status_usuario = ?;';
 
             return $sql;
         }
@@ -17,14 +17,14 @@
 
         // Cadastrar dados na Tabela Usuário!
         public static function CADASTRAR_USUARIO_SQL(){
-            $sql = 'INSERT INTO tb_usuario(nome_usuario, tipo_usuario, email_usuario, cpf_usuario, senha_usuario, status_usuario, tel_usuario) VALUES(?, ?, ?, ?, ?, ?, ?);';
+            $sql = 'INSERT INTO tb_usuario(nome_usuario, tipo_usuario, email_usuario, cpf_usuario, status_usuario, tel_usuario) VALUES(?, ?, ?, ?, ?, ?);';
 
             return $sql;
         }
 
         // Cadastrar dados na Tabela  Funcionário!
         public static function CADASTRAR_FUNCIONARIO_SQL(){
-            $sql = 'INSERT INTO tb_funcionario(usuario_id, id_setor) VALUES(?, ?);';
+            $sql = 'INSERT INTO tb_funcionario(usuario_id, setor_id) VALUES(?, ?);';
 
             return $sql;
         }
@@ -38,14 +38,14 @@
 
         // Cadastrar dados na Tabela Endereço!
         public static function CADASTRAR_ENDERECO_SQL(){
-            $sql = 'INSERT INTO tb_endereco(rua, bairro, cep, id_cidade, usuario_id) VALUES(?, ?, ?, ?, ?);';
+            $sql = 'INSERT INTO tb_endereco(rua, bairro, cep, cidade_id, usuario_id) VALUES(?, ?, ?, ?, ?);';
 
             return $sql;
         }
 
         // Cadastrar dados na Tabela Cidade!
         public static function CADASTRAR_CIDADE_SQL(){
-            $sql = 'INSERT INTO tb_cidade(nome_cidade, id_estado) VALUES(?, ?);';
+            $sql = 'INSERT INTO tb_cidade(nome_cidade, estado_id) VALUES(?, ?);';
 
             return $sql;
         }
@@ -59,17 +59,17 @@
 
         // Verifica se os dados foram preenchidos corretamente de acordo a regra da Tabela Endereço!
         public static function VERIFICAR_CIDADE_CADASTRADA_SQL(){
-            $sql = 'SELECT ci.id_cidade
+            $sql = 'SELECT ci.id
                         FROM tb_cidade AS ci
                     INNER JOIN tb_estado AS es
-                        ON ci.id_estado = es.id_estado
+                        ON ci.estado_id = es.id
                     Where ci.nome_cidade = ? AND es.sigla_estado = ?;';
 
             return $sql;
         }
 
         public static function VERIFICAR_ESTADO_CADASTRADO_SQL(){
-            $sql = 'SELECT id_estado FROM tb_estado WHERE sigla_estado = ?;';
+            $sql = 'SELECT id FROM tb_estado WHERE sigla_estado = ?;';
 
             return $sql;
         }
@@ -123,7 +123,7 @@
         }
 
         public static function ALTERAR_FUNCIONARIO_SQL(){
-            $sql = 'UPDATE tb_funcionario SET id_setor = ? WHERE usuario_id = ?;';
+            $sql = 'UPDATE tb_funcionario SET setor_id = ? WHERE usuario_id = ?;';
             return $sql;
         }
 
@@ -134,7 +134,7 @@
         }
 
         public static function ALTERAR_ENDERECO_SQL(){
-            $sql = 'UPDATE tb_endereco SET rua = ?, bairro = ?, cep = ?, id_cidade = ? WHERE id_endereco = ?;';
+            $sql = 'UPDATE tb_endereco SET rua = ?, bairro = ?, cep = ?, cidade_id = ? WHERE id = ?;';
 
             return $sql;
         }

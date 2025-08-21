@@ -29,7 +29,7 @@
                     return -7;
                 }
 
-                Util::CriarSessao($usuario['id'], $usuario['nome_usuario']);
+                // Util::CriarSessao($usuario['id'], $usuario['nome_usuario']);
 
                 Util::ChamarPagina('http://localhost/src/view/admin/inicial_adm.php');
             }
@@ -61,11 +61,11 @@
                 $vo->setStatus(SITUACAO_ATIVO);
 
                 // Setando a Senha Criptografada!
-                $vo->setSenha(Util::CriptografarSenha($vo->getCPF()));
+                $vo->setCPF(Util::CriptografarSenha($vo->getCPF()));
 
                 // Setando as propriedades do Gravar Erro Log!
-                $vo->setFuncaoErro(CADASTRAR_USUARIO);
-                $vo->setCodLogado(Util::UsuarioLogado());
+                $vo->setErroFuncao(CADASTRAR_USUARIO);
+                // $vo->setCodLogado(Util::UsuarioLogado());
 
                 return $this->model->CadastrarUsuarioMODEL($vo);
             }
@@ -93,7 +93,7 @@
         public function AlterarUsuarioCTRL($vo) : int{
             if (
                 empty($vo->getNome()) || empty($vo->getEmail()) ||
-                empty($vo->getCPF()) || empty($vo->getTele()) || empty($vo->getRua()) ||
+                empty($vo->getCPF()) || empty($vo->getTelefone()) || empty($vo->getRua()) ||
                 empty($vo->getBairro()) || empty($vo->getCEP()) || empty($vo->getCidade()) ||
                 empty($vo->getEstado())
             ) {
@@ -103,10 +103,10 @@
                     return 0;
                 }
 
-                $vo->setSenha(Util::CriptografarSenha($vo->getCPF()));
+                $vo->setCPF(Util::CriptografarSenha($vo->getCPF()));
 
-                $vo->setFuncaoErro(ALTERAR_USUARIO);
-                $vo->setCodLogado(Util::UsuarioLogado());
+                $vo->setErroFuncao(ALTERAR_USUARIO);
+                // $vo->setCodLogado(Util::UsuarioLogado());
 
                 return $this->model->AlterarUsuarioMODEL($vo);
             }

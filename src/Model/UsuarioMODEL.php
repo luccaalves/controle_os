@@ -7,9 +7,9 @@
     use Src\Model\SQL\USUARIO_SQL;
     use Src\VO\UsuarioVO;
 
-    // use Src\VO\FuncionarioVO;
-    // use Src\VO\TecnicoVO;
-    // use Src\VO\UsuarioVO;
+    use Src\VO\FuncionarioVO;
+    use Src\VO\TecnicoVO;
+
 
     class UsuarioMODEL extends Conexao{
 
@@ -52,9 +52,9 @@
             $sql->bindValue($i++, $vo->getTipo());
             $sql->bindValue($i++, $vo->getEmail());
             $sql->bindValue($i++, $vo->getCPF());
-            $sql->bindValue($i++, $vo->getSenha());
+            // $sql->bindValue($i++, $vo->getSenha());
             $sql->bindValue($i++, $vo->getStatus());
-            $sql->bindValue($i++, $vo->getTele());
+            $sql->bindValue($i++, $vo->getTelefone());
 
             try{
                 // Monitora toda a tentativa de execução desse algoritmo, caso de erro, volta tudo como estava anteriormente!
@@ -109,7 +109,7 @@
 
                 // Vamos verificar se encontrou a Cidade!
                 if(count($temCidade) > 0){
-                    $idCidade = $temCidade[0]['id_cidade'];
+                    $idCidade = $temCidade[0]['id'];
                 }else{
                     $idEstado = 0;
 
@@ -215,7 +215,7 @@
             $sql->bindValue($i++, $vo->getNome());
             $sql->bindValue($i++, $vo->getEmail());
             $sql->bindValue($i++, $vo->getCPF());
-            $sql->bindValue($i++, $vo->getTele());
+            $sql->bindValue($i++, $vo->getTelefone());
             $sql->bindValue($i++, $vo->getId());
 
             try{
@@ -268,7 +268,7 @@
 
                 // Vamos verificar se encontrou a Cidade!
                 if(count($temCidade) > 0){
-                    $idCidade = $temCidade[0]['id_cidade'];
+                    $idCidade = $temCidade[0]['id'];
                 }else{
                     $idEstado = 0;
 

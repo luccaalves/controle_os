@@ -352,3 +352,48 @@ Hora do Erro: 17:04
 Código Logado: 1
 Função do Erro: ExcluirSetorUsuario
 Erro Ténico: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`db_controle_os`.`tb_alocar`, CONSTRAINT `fk_tb_alocar_tb_setor1` FOREIGN KEY (`setor_id`) REFERENCES `tb_setor` (`id`))
+===============================================================================
+Data do Erro: 2025-08-21
+Hora do Erro: 16:53
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+===============================================================================
+Data do Erro: 2025-08-21
+Hora do Erro: 16:53
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ci.id_cidade' in 'field list'
+===============================================================================
+Data do Erro: 2025-08-21
+Hora do Erro: 16:54
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ci.id_cidade' in 'field list'
+===============================================================================
+Data do Erro: 2025-08-21
+Hora do Erro: 16:54
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ci.id_estado' in 'on clause'
+===============================================================================
+Data do Erro: 2025-08-21
+Hora do Erro: 16:55
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_cidade' in 'field list'
+===============================================================================
+Data do Erro: 2025-08-21
+Hora do Erro: 16:56
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_cidade' in 'field list'
+===============================================================================
+Data do Erro: 2025-08-21
+Hora do Erro: 16:58
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_cidade' in 'field list'
+===============================================================================
+Data do Erro: 2025-08-21
+Hora do Erro: 17:06
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_cidade' in 'field list'
+===============================================================================
+Data do Erro: 2025-08-21
+Hora do Erro: 17:12
+Função do Erro: CadastrarUsuario
+Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_setor' in 'field list'

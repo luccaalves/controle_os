@@ -16,12 +16,12 @@ class LogErroVO{
         return $this->erro_tecnico;
     }
 
-    public function setCodLogado(int $cod_logado) : void{
-        $this->cod_logado = $cod_logado;
-    }
-    public function getCodLogado() : int{
-        return $this->cod_logado;
-    }
+    // public function setCodLogado(int $cod_logado) : int{
+    //     $this->cod_logado = $cod_logado;
+    // }
+    // public function getCodLogado() : int{
+    //     return $this->cod_logado;
+    // }
 
     public function setErroFuncao(string $erro_funcao) : void{
         $this->erro_funcao = $erro_funcao;

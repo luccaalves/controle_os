@@ -17,7 +17,7 @@ class NovoSetorCTRL
             return 0;
         }else{
 
-            $vo->setCodLogado(Util::UsuarioLogado());
+            // $vo->setCodLogado(Util::UsuarioLogado());
             $vo->setErroFuncao(CADASTRAR_SETOR_USUARIO);
 
             $ret = $this->model->CadastrarSetorMODEL($vo);

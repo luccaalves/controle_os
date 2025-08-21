@@ -145,14 +145,14 @@ if (isset($_POST['btnGravar']) && $_POST['btnGravar'] == 'Cadastrar') {
     $vo = new AlocarVo();
 
     $vo->setIdEquipamento(($_POST['id_equipamento']));
-    $vo->setIdSetor(($_POST['id_setor']));
+    $vo->setIdSetor(($_POST['id']));
 
     $ret = $ctrl->AlocarEquipamentoCTRL($vo);
 
     echo $ret;
 } else if (isset($_POST['consultarEquipamentoAlocado'])) {
     // var_dump($_POST['id_setor']);
-    $equipamentos = $ctrl->EquipamentoAlocadoSetorCTRL(($_POST['id_setor'])); ?>
+    $equipamentos = $ctrl->EquipamentoAlocadoSetorCTRL(($_POST['id'])); ?>
     <thead>
         <tr>
             <th>Nome do Equipamento</th>

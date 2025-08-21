@@ -66,7 +66,7 @@ namespace Src\Model;
             $msg = '===============================================================================' . PHP_EOL;
             $msg = $msg . 'Data do Erro: ' . $vo->getDataErro() . PHP_EOL;
             $msg .= 'Hora do Erro: ' . $vo->getHoraErro() . PHP_EOL;;
-            $msg .= 'Código Logado: ' . $vo->getCodLogado() . PHP_EOL;;
+            // $msg .= 'Código Logado: ' . $vo->getCodLogado() . PHP_EOL;;
             $msg .= 'Função do Erro: ' . $vo->getErroFuncao() . PHP_EOL;;
             $msg .= 'Erro Ténico: ' . $vo->getErroTecnico() . PHP_EOL;; 
 

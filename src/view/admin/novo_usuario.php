@@ -68,7 +68,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
                     </div>
                     <div class="form-group obg col-md-6">
                       <label for="exampleInputEmail1">CPF:</label>
-                      <input type="text" class="form-control obg" placeholder="Digite aqui..." name="senha" id="senha" onchange="ValidarCPF(this.value)">
+                      <input type="text" class="form-control obg" placeholder="Digite aqui..." name="cpf" id="cpf" onchange="ValidarCPF(this.value)">
                     </div>
                   </div>
                 </div>
