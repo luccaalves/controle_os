@@ -1,3 +1,13 @@
+<?php 
+include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
+
+use Src\public\Util;
+
+if(isset($_GET['close']) && $_GET['close'] == 1){
+  Util::Deslogar();
+}
+?>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <a href="../../index3.html" class="brand-link">
     <img src="../../template/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -148,7 +158,7 @@
             </li>
           </ul>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="../../template/includes/_menu.php?close=1" class="nav-link">
             <i class="fa fa-power-off nav-icon"></i>
             <p>Sair</p>
           </a>

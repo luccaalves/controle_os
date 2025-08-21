@@ -20,7 +20,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
 
       <form id="formLOG" method="post">
         <div class="input-group mb-3">
-          <input id="login" class="form-control obg" placeholder="Email">
+          <input id="loginUsuario" name="loginUsuario" class="form-control obg" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -28,7 +28,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control obg" placeholder="Senha">
+          <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control obg" placeholder="Senha">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -37,7 +37,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
         </div>
         <div class="row">
           <div class="col-4">
-            <button type="button" name="btnLogin" onclick="LoginAJAX('formLOG')" class="btn btn-primary btn-block">Acessar</button>
+            <button type="button" name="btnLogin" onclick="NotificarCampos('formLOG')" class="btn btn-primary btn-block">Acessar</button>
           </div>
         </div>
       </form>
@@ -47,6 +47,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
 
     <?php 
     include_once PATH . 'template/includes/_scripts.php'; 
+    include_once PATH . 'template/includes/_msg.php'; 
     ?>
 
   <script src="../../resource/ajax/usuario_ajax.js"></script>

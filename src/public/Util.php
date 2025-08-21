@@ -34,6 +34,7 @@ class Util
 
     public static function Deslogar()
     {
+        self::IniciarSessao();
         unset($_SESSION['cod']);
         unset($_SESSION['nome']);
         self::ChamarPagina('http://localhost/src/view/acesso/login.php');

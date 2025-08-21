@@ -31,7 +31,7 @@
 
                 Util::CriarSessao($usuario['id'], $usuario['nome_usuario']);
 
-                Util::ChamarPagina('inicial_adm');
+                Util::ChamarPagina('http://localhost/src/view/admin/inicial_adm.php');
             }
         }
 
