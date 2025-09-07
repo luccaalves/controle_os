@@ -19,16 +19,17 @@
             $this->conexao = parent::retornarConexao();
         }
 
-        public function ValidarLoginMODEL(string $login, int $status) : null | array | bool{
-            $sql = $this->conexao->prepare(USUARIO_SQL::VALIDAR_LOGIN_SQL());
+    public function ValidarLoginModel(string $login, int $status): array | null | bool
+    {
+        $sql = $this->conexao->prepare(USUARIO_SQL::VALIDAR_LOGIN_SQL());
 
-            $sql->bindValue(1, $login);
-            $sql->bindValue(2, $status);
+        $sql->bindValue(1, $login);
+        $sql->bindValue(2, $status);
 
-            $sql->execute();
+        $sql->execute();
 
-            return $sql->fetch(\PDO::FETCH_ASSOC);
-        }
+        return $sql->fetch(\PDO::FETCH_ASSOC);
+    }
 
         public function VerificarEmailDuplicadoMODEL($email) : bool{
             $sql = $this->conexao->prepare(USUARIO_SQL::VERIFICAR_EMAIL_SQL());
@@ -326,5 +327,11 @@
                 parent::GravarErroLog($vo);
                 return -1;
             }
-        }        
+        }  
+        
+        public function RegistrarLogAcesso(int $idUser): void {
+            $sql = $this->conexao->prepare('call proc_registrar_acesso(?)');
+            $sql->bindValue(1,$idUser);
+            $sql->execute();
+        }
     }

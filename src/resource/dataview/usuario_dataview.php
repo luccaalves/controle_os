@@ -146,8 +146,8 @@ if (isset($_POST['verificarEmailDuplicado'])) {
 
     echo $ret;
 } else if (isset($_POST['btnLogin'])) {
-    $login = $_POST['login'];
-    $senha = $_POST['senha'];
+    $login = $_POST['login_usuario'];
+    $senha = $_POST['senha_usuario'];
 
     $ret = $ctrl->ValidarLoginCTRL($login, $senha);
 } ?>

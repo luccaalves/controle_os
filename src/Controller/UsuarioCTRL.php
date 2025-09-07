@@ -14,25 +14,22 @@
             $this->model = new UsuarioMODEL();
         }
 
-        public function ValidarLoginCTRL(string $login, string $senha) : int{
-            if(empty($login) || empty($senha)){
-                return 0;
-            }else{
-                $usuario = $this->model->ValidarLoginMODEL($login, SITUACAO_ATIVO);
+     public function ValidarLoginCtrl(string $login, string $senha){
+        if (empty($login) || empty($senha)) {
+            return 0;
+        }
+        $usuario = $this->model->ValidarLoginModel($login, SITUACAO_ATIVO);
 
-                // Caso o Login não seja encontrado!
-                if(empty($usuario)){
-                    return -7;
-                }
+        if (empty($usuario)) {
+            return -7; 
+        }
 
-                if(!Util::VerificarSenha($senha, $usuario['cpf_usuario'])){
-                    return -7;
-                }
-
-                // Util::CriarSessao($usuario['id'], $usuario['nome_usuario']);
-
+        if (!Util::VerificarSenha($senha, $usuario['senha_usuario'])) {
+            return -7;
+        }
+                $this->model->RegistrarLogAcesso($usuario['id']);
+                Util::CriarSessao($usuario['id'], $usuario['nome_usuario']);
                 Util::ChamarPagina('http://localhost/src/view/admin/inicial_adm.php');
-            }
         }
 
         public function VerificarEmailDuplicadoCTRL(string $email) : bool{
@@ -106,7 +103,7 @@
                 $vo->setCPF(Util::CriptografarSenha($vo->getCPF()));
 
                 $vo->setErroFuncao(ALTERAR_USUARIO);
-                // $vo->setCodLogado(Util::UsuarioLogado());
+                $vo->setCodLogado(Util::UsuarioLogado());
 
                 return $this->model->AlterarUsuarioMODEL($vo);
             }

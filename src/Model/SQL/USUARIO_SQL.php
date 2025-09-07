@@ -4,7 +4,7 @@
 
     class USUARIO_SQL{
         public static function VALIDAR_LOGIN_SQL(){
-            $sql = 'SELECT id, email_usuario, cpf_usuario FROM tb_usuario WHERE status_usuario = ?;';
+            $sql = 'SELECT id, email_usuario, cpf_usuario FROM tb_usuario WHERE cpf_usuario = ? AND status_usuario = ?';
 
             return $sql;
         }
