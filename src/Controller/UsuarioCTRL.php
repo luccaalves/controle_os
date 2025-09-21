@@ -14,35 +14,36 @@
             $this->model = new UsuarioMODEL();
         }
 
-     public function ValidarLoginCtrl(string $login, string $senha){
+    public function ValidarLoginCtrl(string $login, string $senha)
+    {
         if (empty($login) || empty($senha)) {
             return 0;
         }
+
         $usuario = $this->model->ValidarLoginModel($login, SITUACAO_ATIVO);
 
         if (empty($usuario)) {
-            return -7; 
+            return -10;
         }
 
         if (!Util::VerificarSenha($senha, $usuario['senha_usuario'])) {
             return -7;
         }
-                $this->model->RegistrarLogAcesso($usuario['id']);
-                Util::CriarSessao($usuario['id'], $usuario['nome_usuario']);
-                Util::ChamarPagina('http://localhost/src/view/admin/inicial_adm.php');
-        }
+
+        $this->model->RegistrarLogAcesso(Util::DataHoraAtual(), $usuario['id']);
+        Util::CriarSessao($usuario['id'], $usuario['nome_usuario']);
+        Util::ChamarPagina('\src\view\admin\index');
+    }
 
         public function VerificarEmailDuplicadoCTRL(string $email) : bool{
             return $this->model->VerificarEmailDuplicadoMODEL($email);
         }
 
-        public function CadastrarUsuarioCTRL($vo){
+        public function CadastrarUsuarioCTRL($vo): int{
             // Validação das propriedades comum entre todos os tipos de Usuários!
             if(
                 empty($vo->getNome()) || empty($vo->getTipo()) || empty($vo->getEmail()) || 
-                empty($vo->getCPF()) || empty($vo->getTelefone()) || empty($vo->getRua()) || 
-                empty($vo->getBairro()) || empty($vo->getCEP()) || empty($vo->getCidade()) || 
-                empty($vo->getEstado())
+                empty($vo->getCPF()) || empty($vo->getTelefone())
             ){
                 return 0;
             }else{
@@ -54,15 +55,13 @@
                     return 0;
                 }
 
-                // Setando o Status do Usuário!
-                $vo->setStatus(SITUACAO_ATIVO);
-
-                // Setando a Senha Criptografada!
-                $vo->setCPF(Util::CriptografarSenha($vo->getCPF()));
-
                 // Setando as propriedades do Gravar Erro Log!
                 $vo->setErroFuncao(CADASTRAR_USUARIO);
-                // $vo->setCodLogado(Util::UsuarioLogado());
+                $vo->setCodLogado(Util::UsuarioLogado());
+                // Setando o Status do Usuário!
+                $vo->setStatus(SITUACAO_ATIVO);
+                // Setando a Senha Criptografada!
+                $vo->setSenha(Util::CriptografarSenha($vo->getCPF()));
 
                 return $this->model->CadastrarUsuarioMODEL($vo);
             }
@@ -100,10 +99,9 @@
                     return 0;
                 }
 
-                $vo->setCPF(Util::CriptografarSenha($vo->getCPF()));
-
                 $vo->setErroFuncao(ALTERAR_USUARIO);
                 $vo->setCodLogado(Util::UsuarioLogado());
+                $vo->setSenha(Util::CriptografarSenha($vo->getCPF()));
 
                 return $this->model->AlterarUsuarioMODEL($vo);
             }

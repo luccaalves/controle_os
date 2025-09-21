@@ -23,7 +23,7 @@ class UsuarioVO extends EnderecoVO{
     private $tipo;
     private $email;
     private $cpf;
-    // private $senha;
+    private $senha;
     private $status;
     private $telefone;
 
@@ -68,13 +68,13 @@ class UsuarioVO extends EnderecoVO{
     }    
 
 
-    // //SET e GET do SENHA do Usuário!
-    // public function setSenha(string $senha) : void{
-    //     $this->senha = $senha;
-    // }
-    // public function getSenha() : string{
-    //     return $this->senha;
-    // }
+    //SET e GET do SENHA do Usuário!
+    public function setSenha(string $senha) : void{
+        $this->senha = $senha;
+    }
+    public function getSenha() : string{
+        return $this->senha;
+    }
 
     //SET e GET da STATUS do Usuário!
     public function setStatus(int $status) : void{

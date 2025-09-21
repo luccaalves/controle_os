@@ -6,7 +6,7 @@ function MostrarMensagem(ret){
     }else if(ret == 0){
         toastr.warning('Preencher os campos obrigatórios!');
     }else if(ret == -1){
-        toastr.error('Houve um erro na operação!');
+        toastr.error('Houve um erro na operação! Tente nvamente mais tarde');
     }else if(ret == -2){
         toastr.error('CEP não encontrado!');
     }else if(ret == -3){
@@ -19,5 +19,9 @@ function MostrarMensagem(ret){
         toastr.error('Esse E-MAIL já é cadastrado!');
     }else if(ret == -7){
         toastr.error('Usuário não encontrado!')
+    }else if (ret == -10){
+        toastr.info('!');
+    }else if (ret == -11){
+        toastr.info('CPF já cadastrado.');
     }
 }

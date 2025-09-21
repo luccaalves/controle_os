@@ -200,8 +200,8 @@ function AlterarUsuarioAJAX(formID){
 
 function LoginAJAX(formID){
     if(NotificarCampos(formID)){
-        let senha = $("#senha").val();
-        let login = $("#login").val();
+        let login = $("#login_usuario").val();
+        let senha = $("#senha_usuario").val();
 
         $.ajax({
             beforeSend: function () {

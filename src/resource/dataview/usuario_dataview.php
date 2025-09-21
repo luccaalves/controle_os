@@ -126,7 +126,6 @@ if (isset($_POST['verificarEmailDuplicado'])) {
 
     // Dados do Usuário!
     $vo->setId($_POST['codUsuario']);
-
     $vo->setTipo((int)$_POST['tipo']);
     $vo->setNome($_POST['nome']);
     $vo->setEmail($_POST['email']);
@@ -148,6 +147,5 @@ if (isset($_POST['verificarEmailDuplicado'])) {
 } else if (isset($_POST['btnLogin'])) {
     $login = $_POST['login_usuario'];
     $senha = $_POST['senha_usuario'];
-
     $ret = $ctrl->ValidarLoginCTRL($login, $senha);
 } ?>

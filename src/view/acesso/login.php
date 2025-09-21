@@ -2,8 +2,6 @@
 include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +35,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
         </div>
         <div class="row">
           <div class="col-4">
-            <button type="submit" name="btnLogin" onclick="LoginAJAX('formLOG')" class="btn btn-primary btn-block">Acessar</button>
+            <button type="submit" name="btnLogin" onclick="NotificarCampos('formLOG')" class="btn btn-primary btn-block">Acessar</button>
           </div>
         </div>
       </form>
