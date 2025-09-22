@@ -119,7 +119,8 @@ class USUARIO_SQL
                         cid.nome_cidade,
                         est.sigla_estado,
                         tec.nome_empresa,
-                        fun.setor_id
+                        fun.setor_id,
+                        se.nome_setor
                     FROM tb_usuario AS usu
                 INNER JOIN tb_endereco AS en
                     ON usu.id = en.usuario_id
@@ -130,7 +131,10 @@ class USUARIO_SQL
                 LEFT JOIN tb_tecnico AS tec
                     ON usu.id = tec.usuario_id
                 LEFT JOIN tb_funcionario AS fun
-                    ON usu.id = fun.usuario_id WHERE usu.id = ?;';
+                    ON usu.id = fun.usuario_id 
+                LEFT JOIN tb_setor as se
+                    ON se.id = fun.setor_id
+                WHERE usu.id = ?;';
 
         return $sql;
     }

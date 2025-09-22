@@ -14,26 +14,26 @@
             $this->model = new UsuarioMODEL();
         }
 
-    public function ValidarLoginCtrl(string $login, string $senha)
-    {
-        if (empty($login) || empty($senha)) {
-            return 0;
+        public function ValidarLoginCtrl(string $login, string $senha)
+        {
+            if (empty($login) || empty($senha)) {
+                return 0;
+            }
+
+            $usuario = $this->model->ValidarLoginModel($login, SITUACAO_ATIVO);
+
+            if (empty($usuario)) {
+                return -10;
+            }
+
+            if (!Util::VerificarSenha($senha, $usuario['senha_usuario'])) {
+                return -7;
+            }
+
+            $this->model->RegistrarLogAcesso(Util::DataHoraAtual(), $usuario['id']);
+            Util::CriarSessao($usuario['id'], $usuario['nome_usuario']);
+            Util::ChamarPagina('\src\view\admin\index');
         }
-
-        $usuario = $this->model->ValidarLoginModel($login, SITUACAO_ATIVO);
-
-        if (empty($usuario)) {
-            return -10;
-        }
-
-        if (!Util::VerificarSenha($senha, $usuario['senha_usuario'])) {
-            return -7;
-        }
-
-        $this->model->RegistrarLogAcesso(Util::DataHoraAtual(), $usuario['id']);
-        Util::CriarSessao($usuario['id'], $usuario['nome_usuario']);
-        Util::ChamarPagina('\src\view\admin\index');
-    }
 
         public function VerificarEmailDuplicadoCTRL(string $email) : bool{
             return $this->model->VerificarEmailDuplicadoMODEL($email);
@@ -86,7 +86,7 @@
             }
         }
 
-        public function AlterarUsuarioCTRL($vo) : int{
+        public function AlterarUsuarioCTRL($vo, bool $tem_sessao = true) : int{
             if (
                 empty($vo->getNome()) || empty($vo->getEmail()) ||
                 empty($vo->getCPF()) || empty($vo->getTelefone()) || empty($vo->getRua()) ||
@@ -100,7 +100,7 @@
                 }
 
                 $vo->setErroFuncao(ALTERAR_USUARIO);
-                $vo->setCodLogado(Util::UsuarioLogado());
+                $vo->setCodLogado($tem_sessao ? Util::UsuarioLogado() : $vo->getId());
                 $vo->setSenha(Util::CriptografarSenha($vo->getCPF()));
 
                 return $this->model->AlterarUsuarioMODEL($vo);

@@ -223,3 +223,11 @@ function LoginAJAX(formID){
         })
     }
 }
+
+function SetarCampoValor(id, value){
+    document.getElementById(id).value = value;
+}
+
+function PegarValor(id){
+    return document.getElementById(id).value;
+}
