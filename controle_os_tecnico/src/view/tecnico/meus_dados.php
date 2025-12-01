@@ -1,0 +1,120 @@
+<?php
+include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <?php
+    include_once PATH . 'template/includes/_head.php';
+    include_once PATH . 'template/includes/_scripts.php';
+    ?>
+    <script>
+        Verify();
+    </script>
+</head>
+
+<body class="dark-mode sidebar-mini sidebar-collapse">
+    <!-- Site wrapper -->
+    <div class="wrapper dark-mode">
+        <?php
+        include_once PATH . 'template/includes/_menu.php';
+        include_once PATH . 'template/includes/_topo.php';
+        ?>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 style="color: #00BFFF;">Informações Pessoais</h1>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </section>
+            <section class="content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Atualize as informações nos campos designados.</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <form action="meus_dados.php" id="formALT" method="post">
+                                <input type="hidden" id="cod_endereco">
+                                <input type="hidden" id="tipo_usuario">
+
+                                <div class="row">
+                                    <div class="form-group col-md-9">
+                                        <label>Nome</label>
+                                        <input disabled type="text" class="form-control" name="nome" id="nome" placeholder="Digite aqui o nome...">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label>Telefone</label>
+                                        <input type="text" class="form-control obg cel num" name="telefone" id="telefone" placeholder="Digite aqui...">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>CPF</label>
+                                        <input disabled type="text" class="form-control" name="cpf" id="cpf" placeholder="Digite aqui o CPF...">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>E-mail</label>
+                                        <input disabled type="email" class="form-control" name="email" id="email" placeholder="Digite aqui O email...">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Nome da Empresa</label>
+                                    <input disabled class="form-control" name="nome_empresa" id="nome_empresa">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>CEP</label>
+                                    <input type="text" autocomplete="off" class="form-control obg cep num" name="cep" id="cep" placeholder="Digite aqui...">
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Rua</label>
+                                        <input type="text" class="form-control obg" name="rua" id="rua" placeholder="Digite aqui...">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Bairro</label>
+                                        <input type="text" class="form-control obg" name="bairro" id="bairro" placeholder="Digite aqui...">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Estado</label>
+                                        <input disabled type="text" class="form-control obg" name="estado" id="estado" placeholder="Digite o CEP (preenchimento automático)...">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Cidade</label>
+                                        <input disabled type="text" class="form-control obg" name="cidade" id="cidade" placeholder="Digite o CEP (preenchimento automático)...">
+                                    </div>
+                                </div>
+
+                                <button type="button" id="btn_alterar" class="btn btn-success" name="btn_cadastrar" onclick="GravarMeusDados('formALT')">Alterar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <?php
+        include_once PATH . 'template/includes/_footer.php';
+        ?>
+    </div>
+
+    <script src="../../resource/js/buscar_cep.js"></script>
+    <script src="../../template/mask/jquery.mask.min.js"></script>
+    <script src="../../template/mask/mask.js"></script>
+    <script src="../../resource/ajax/usuario_ajx.js"></script>
+    <script>
+        DetalharMeusDados();
+    </script>
+</body>
+
+</html>

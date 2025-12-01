@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "controle_os_admin"
+		},
+		{
+			"path": "controle_os_funcionario"
+		},
+		{
+			"path": "controle_os_tecnico"
+		}
+	]
+}
