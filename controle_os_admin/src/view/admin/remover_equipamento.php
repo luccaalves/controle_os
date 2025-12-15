@@ -44,7 +44,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/novo_equipamento_dataview
                             <input type="hidden" value="telaRemover" id="itemTela">
                             <div class="form-group">
                                 <label>Setor</label>
-                                <select class="form-control" name="setor" id="setor" onchange="ConsultarEquipamentoAlocadoAJAX(this.value)">
+                                <select class="form-control" name="setor" id="setor" onchange="ConsultarEquipamentoAlocadoAJAX()">
                                 <!-- Vai ser Carregado pelo AJAX -->
                                 </select>
                             </div>
@@ -78,7 +78,6 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/novo_equipamento_dataview
     <script src="../../resource/ajax/novo_equipamento_ajax.js"></script>
     <script>
         SelecionarSetorAJAX();
-        ExcluirAJAX();
     </script>
 
 </body>

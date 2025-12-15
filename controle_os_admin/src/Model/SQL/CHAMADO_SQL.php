@@ -6,13 +6,12 @@ class CHAMADO_SQL
 {
     public static function ABRIR_CHAMADO_SQL(): string
     {
-        $sql = 'INSERT INTO 
-                    tb_chamado 
+        $sql = 'INSERT INTO tb_chamado 
                     (data_abertura, 
-                        hora_abertura, 
-                        problema, 
-                        funcionario_id, 
-                        alocar_id)
+                    hora_abertura, 
+                    problema, 
+                    funcionario_id, 
+                    alocar_id)
                 VALUES
                     (?,?,?,?,?)';
         return $sql;
@@ -30,16 +29,16 @@ class CHAMADO_SQL
     public static function FILTRAR_CHAMADO_SQL($situacao, $setor)
     {
         $sql = 'SELECT
-                    chamado.id as chamado_id
+                    chamado.id as chamado_id,
                     tipo.nome_tipo,
                     modelo.nome_modelo,
                     equip.identificacao,
                     date_format(chamado.data_abertura, "%d/%m/Y") as data_abertura,
                     chamado.hora_abertura,
                     chamado.problema,
-                    date_format(chamado.data_atendimento, "%d/%m/Y") as data_atendimento
-                    chamado.hora_atedimento,
-                    date_format(chamado.data_encerramento,"%d/%m/Y") as data_encerramento
+                    date_format(chamado.data_atendimento, "%d/%m/Y") as data_atendimento,
+                    chamado.hora_atendimento,
+                    date_format(chamado.data_encerramento,"%d/%m/Y") as data_encerramento,
                     chamado.hora_encerramento,
                     chamado.laudo,
                     chamado.alocar_id,
@@ -61,23 +60,23 @@ class CHAMADO_SQL
                 INNER JOIN 
                     tb_modelo as modelo ON equip.modelo_id = modelo.id
                 LEFT JOIN 
-                    tb_tecnico as tec_atend ON chamado.tecnico_atendimento_id = tec_atend.usuario_id
+                    tb_tecnico as tec_atend ON chamado.tecnico_atendimento = tec_atend.usuario_id
                 LEFT JOIN 
                     tb_usuario as usuario_tec_atend ON tec_atend.usuario_id = usuario_tec_atend.id
                 LEFT JOIN 
-                    tb_tecnico as tec_finaliza ON chamado.tecnico_finalizar_id = tec_finaliza.usuario_id
+                    tb_tecnico as tec_finaliza ON chamado.tecnico_encerramento = tec_finaliza.usuario_id
                 LEFT JOIN 
                     tb_usuario as usuario_tec_final ON tec_finaliza.usuario_id = usuario_tec_final.id ';
 
         switch ($situacao) {
             case SITUACAO_CHAMADO_AGUARDANDO_ATENDIMENTO:
-                $sql .= 'WHERE chamado.tecnico_atendimento_id is NULL ' . ($setor ? 'AND alo.setor._id = ?' : '');
+                $sql .= 'WHERE chamado.tecnico_atendimento is NULL ' . ($setor ? 'AND alo.setor_id = ?' : '');
                 break;
             case SITUACAO_CHAMADO_EM_ATENDIMENTO:
-                $sql .= 'WHERE chamado.tecnico_atendimento_id is NOT NULL AND chamado. tecnico_finalizar_id IS NULL ' . ($setor ? 'AND alo.setor._id = ?' : '');
+                $sql .= 'WHERE chamado.tecnico_atendimento is NOT NULL AND chamado. tecnico_encerramento IS NULL ' . ($setor ? 'AND alo.setor_id = ?' : '');
                 break;
             case SITUACAO_CHAMADO_FINALIZADO:
-                $sql .= 'WHERE chamado.tecnico_finalizar_id is NOT NULL ' . ($setor ? 'AND alo.setor._id = ?' : '');
+                $sql .= 'WHERE chamado.tecnico_encerramento is NOT NULL ' . ($setor ? 'AND alo.setor_id = ?' : '');
                 break;
             default:
                 $sql .= ($setor ? 'WHERE alo.setor_id = ? ' : '');
@@ -91,12 +90,12 @@ class CHAMADO_SQL
                     tipo.nome_tipo,
                     modelo.nome_modelo,
                     equip.identificacao,
-                    date_format(chamado.data_abertura, "%d/%m/Y") as data_abertura,
+                    date_format(chamado.data_abertura, "%d/%m/%Y") as data_abertura,
                     chamado.hora_abertura,
                     chamado.problema,
-                    date_format(chamado.data_atendimento, "%d/%m/Y") as data_atendimento
-                    chamado.hora_atedimento,
-                    date_format(chamado.data_encerramento,"%d/%m/Y") as data_encerramento
+                    date_format(chamado.data_atendimento, "%d/%m/%Y") as data_atendimento,
+                    chamado.hora_atendimento,
+                    date_format(chamado.data_encerramento,"%d/%m/%Y") as data_encerramento,
                     chamado.hora_encerramento,
                     chamado.laudo,
                     chamado.alocar_id,
@@ -119,11 +118,11 @@ class CHAMADO_SQL
                 INNER JOIN 
                     tb_modelo as modelo ON equip.modelo_id = modelo.id
                 LEFT JOIN 
-                    tb_tecnico as tec_atend ON chamado.tecnico_atendimento_id = tec_atend.usuario_id
+                    tb_tecnico as tec_atend ON chamado.tecnico_atendimento = tec_atend.usuario_id
                 LEFT JOIN 
                     tb_usuario as usuario_tec_atend ON tec_atend.usuario_id = usuario_tec_atend.id
                 LEFT JOIN 
-                    tb_tecnico as tec_finaliza ON chamado.tecnico_finalizar_id = tec_finaliza.usuario_id
+                    tb_tecnico as tec_finaliza ON chamado.tecnico_encerramento = tec_finaliza.usuario_id
                 LEFT JOIN 
                     tb_usuario as usuario_tec_final ON tec_finaliza.usuario_id = usuario_tec_final.id 
                 WHERE chamado.id = ?';

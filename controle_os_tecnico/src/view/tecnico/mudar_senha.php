@@ -71,7 +71,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
     </div>
     <?php include_once PATH . 'template/includes/_footer.php'; ?>
   </div>
-  <script src="../../resource/ajax/usuario_ajx.js"></script>
+  <script src="../../resource/ajax/usuario_ajax.js"></script>
 
 </body>
 

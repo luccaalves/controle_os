@@ -1,26 +1,26 @@
 function CarregarModalTipoEquipamento(id, nome){
-    $("#alterar_tipo").val(nome);
     $("#id_alterar").val(id);
+    $("#alterar_tipo").val(nome);
 }
 
 function CarregarModalModeloEquipamento(id, nome){
-    $("#alterar_modelo").val(nome);
     $("#id_alterar").val(id);
+    $("#alterar_modelo").val(nome);
 }
 
 function CarregarModalSetor(id, nome){
-    $("#alterar_setor").val(nome);
     $("#id_alterar").val(id);
+    $("#alterar_setor").val(nome);
 }
 
 function CarregarModalExcluir(id, nome){
-    $("#nome_excluir").html(nome);
     $("#id_excluir").val(id);
+    $("#nome_excluir").html(nome);
 }
 
 function CarregarModalDescarte(id, nome){
-    $("#nome_descarte").html(nome);
     $("#id_descarte").val(id);
+    $("#nome_descarte").html(nome);
 }
 
 function CarregarDadosDescarte(data, nome, motivo){

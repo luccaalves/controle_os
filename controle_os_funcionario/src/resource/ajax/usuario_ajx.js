@@ -4,17 +4,17 @@ async function GravarMeusDadosApi(formID) {
       id_usuario: UsuarioLogado(),
       endpoint: API_GRAVAR_MEUS_DADOS,
       setor: CodigoSetorLogado(),
-      nome: PegarValor("nome"),
-      email: PegarValor("email"),
-      cpf: PegarValor("cpf"),
-      telefone: PegarValor("telefone"),
-      id_endereco: PegarValor("id"),
-      rua: PegarValor("rua"),
-      bairro: PegarValor("bairro"),
-      cep: PegarValor("cep"),
-      cidade: PegarValor("cidade"),
-      estado: PegarValor("estado"),
-      tipo_usuario: PegarValor("tipo_usuario"),
+      nome: PegarValor('nome'),
+      email: PegarValor('email'),
+      cpf: PegarValor('cpf'),
+      telefone: PegarValor('telefone'),
+      id_endereco: Number(PegarValor('cod_endereco')) || 0,
+      rua: PegarValor('rua'),
+      bairro: PegarValor('bairro'),
+      cep: PegarValor('cep'),
+      cidade: PegarValor('cidade'),
+      estado: PegarValor('estado'),
+      tipo_usuario: PegarValor('tipo_usuario'),
     };
 
     try {
@@ -35,8 +35,8 @@ async function GravarMeusDadosApi(formID) {
         Sair();
         return;
       }
-      MostrarMensagem(
-        objDados.result === 1 ? MSG_SUCCESSO : MSG_ERRO,
+      MensagemCustomizada(
+        objDados.result === 1 ? MSG_SUCESSO : MSG_ERRO,
         objDados.result === 1 ? COR_MSG_SUCESSO : COR_MSG_ERRO
       );
     } catch (error) {
@@ -65,12 +65,12 @@ async function DetalharMeusDados() {
     }
 
     const objDados = await response.json();
-    const dadosUser = objDados.result;
     if (objDados.result == NAO_AUTORIZADO) {
       Sair();
       return;
     }
 
+    const dadosUser = objDados.result;
     SetarCampoValor("nome", dadosUser.nome_usuario);
     SetarCampoValor("telefone", dadosUser.tel_usuario);
     SetarCampoValor("cpf", dadosUser.cpf_usuario);
@@ -81,8 +81,9 @@ async function DetalharMeusDados() {
     SetarCampoValor("estado", dadosUser.sigla_estado);
     SetarCampoValor("cidade", dadosUser.nome_cidade);
     SetarCampoValor("setor", dadosUser.nome_setor);
-    SetarCampoValor("id_endereco", dadosUser.id_endereco);
-    SetarCampoValor("tipo_usuario", dadosUser.tipo_usuario);
+    SetarCampoValor("cod_endereco", dadosUser.cod_endereco);
+    SetarCampoValor('tipo_usuario', dadosUser.tipo);
+
   } catch (error) {
     MensagemCustomizada(error.message, COR_MSG_ERRO);
   } finally {
@@ -133,24 +134,25 @@ async function MudarSenha(formID, formID2) {
     const nova_senha = PegarValor("nova_senha");
     const rep_senha = PegarValor("rep_senha");
 
-    if (nova_senha.lenght < TAMANHO_SENHA_PERMITIDA) {
+    if (nova_senha.length < TAMANHO_SENHA_PERMITIDA) {
       MensagemCustomizada(MSG_SENHA_MENOR, COR_MSG_ATENCAO);
     } else if (nova_senha !== rep_senha) {
       MensagemCustomizada(MSG_SENHA_REPETIR, COR_MSG_ATENCAO);
     } else {
       const dadosEnviar = {
         endpoint: API_ALTERAR_SENHA_ATUAL,
-        nova_senha: PegarValor("nova_senha"),
+        nova_senha, 
         cod_usuario: UsuarioLogado(),
       };
       try {
         Load();
-
+        
         const response = await fetch(BASE_URL_API(), {
           method: "POST",
           headers: HEADER_COM_AUTENTICACAO(),
           body: JSON.stringify(dadosEnviar),
         });
+
 
         if (!response.ok) throw new Error(MSG_ERRO_CALL_API);
 
@@ -167,10 +169,8 @@ async function MudarSenha(formID, formID2) {
           await LimparNotificacoesAsync(formID2);
           MostrarElemento(formID2, true);
           MostrarElemento(formID, false);
-
-          // document.getElementById(formID2).classList.remove("d-none");
-          // document.getElementById(formID).classList.add("d-none");
         } else {
+
           MensagemCustomizada(MSG_ERRO, COR_MSG_ERRO);
         }
       } catch (error) {

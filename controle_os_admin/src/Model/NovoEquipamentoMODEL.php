@@ -70,11 +70,10 @@ class NovoEquipamentoModel extends Conexao{
         return $sql->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function EquipamentoAlocadoSetorMODEL(int $setor_id, int $situacaoAlocado) : array | null{
+    public function EquipamentoAlocadoSetorMODEL(int $situacaoAlocado, $setor_id) : array | null{
         $sql = $this->conexao->prepare(NOVO_EQUIPAMENTO_SQL::EQUIPAMENTOS_ALOCADO_SETOR_SQL());
 
         $i = 1;
-
         $sql->bindValue($i++, $setor_id);
         $sql->bindValue($i++, $situacaoAlocado);
 
@@ -130,6 +129,7 @@ class NovoEquipamentoModel extends Conexao{
     }
 
     public function RemoverEquipamentoSetorMODEL(AlocarVo $vo) : int{
+
         $sql = $this->conexao->prepare(NOVO_EQUIPAMENTO_SQL::REMOVER_EQUIPAMENTO_SETOR_SQL());
 
         $i = 1;

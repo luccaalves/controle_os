@@ -142,6 +142,7 @@ function SelecionarEquipamentoDisponivelAJAX() {
 }
 
 function ExcluirAJAX() {
+    console.log("ID a excluir:", $("#id_excluir").val());
     $.ajax({
         beforeSend: function () {
             Load();
@@ -150,7 +151,7 @@ function ExcluirAJAX() {
         url: BASE_URL_DATAVIEW("novo_equipamento_dataview"),
         data: {
             btnExcluir: $("#itemTela").val() == 'telaRemover' ? 'RemoverEquipamento' : 'Excluir',
-            id_equipamento: $("#id_excluir").val()
+            id_excluir: $("#id_excluir").val()
         },
         success: function (ret) {
             MostrarMensagem(ret);
@@ -220,8 +221,8 @@ function AlocarEquipamentoAJAX(formID) {
     }
 }
 
-function ConsultarEquipamentoAlocadoAJAX(id_setor) {
-    // console.log("Setor enviado:", id_setor);
+function ConsultarEquipamentoAlocadoAJAX() {
+    let id_setor = $("#setor").val();
     if (id_setor != '') {
         $.ajax({
             beforeSend: function () {
@@ -234,7 +235,6 @@ function ConsultarEquipamentoAlocadoAJAX(id_setor) {
                 id_setor: id_setor
             },
             success: function (dados) {
-                // console.log('Retorno do PHP:', dados); 
                 $("#tableResult").html(dados);
                 $("#div-resultado").show();
             },

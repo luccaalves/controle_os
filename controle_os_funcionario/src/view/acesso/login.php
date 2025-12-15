@@ -18,7 +18,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
 
       <form id="formLOG" method="post">
         <div class="input-group mb-3">
-          <input id="login_usuario" name="login_usuario" class="form-control obg" placeholder="Email">
+          <input id="login_usuario" name="login_usuario" class="form-control obg" placeholder="Login">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

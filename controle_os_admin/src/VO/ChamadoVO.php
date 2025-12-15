@@ -79,14 +79,14 @@ class ChamadoVO extends LogErroVO{
     }
 
     public function getDataAbertura(){
-        return Util::DataAtualBr();
+        return Util::DataAtual();
     }
     public function getHoraAbertura(){
         return Util::HoraAtual();
     }
 
     public function getDataAtendimento(){
-        return Util::DataAtualBr();
+        return Util::DataAtual();
     }
 
     public function getHoraAtendimento(){

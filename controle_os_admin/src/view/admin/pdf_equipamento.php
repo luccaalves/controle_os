@@ -7,14 +7,16 @@ use Src\public\Util;
 
 
 if(isset($_POST['btn_pdf'])){
-    $tipo_filtro = $_POST['tipo'];
-    $modelo_filtro = $_POST['modelo'];
+
+    $tipo_filtro = (int)$_POST['tipo'];
+    $modelo_filtro = (int)$_POST['modelo'];
+    $nome_filtro = (string)$_POST['nome'];
     
 
-    $dados = (new NovoEquipamentoCTRL)->FiltrarNovoEquipamentoCTRL($tipo_filtro, $modelo_filtro);
+    $dados = (new NovoEquipamentoCTRL)->FiltrarNovoEquipamentoCTRL($tipo_filtro, $modelo_filtro, $nome_filtro);
 
     $cabecalho = "<center>Equipamentos Encontrados</center><hr>";
-    $table_inicial = "<table width = '100%'>
+    $table_inicial = "<table width = '100%' style='text-align: center;>
     <thead>
         <tr>
             <th>Tipo</th>

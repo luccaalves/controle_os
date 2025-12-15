@@ -33,6 +33,13 @@ function RedirecionarPagina(page, segundos) {
     window.location = BASE_URL_INTRANET() + page + ".php";
   }, segundos * 1000);
 }
+function MostrarElemento(id, mostrar) {
+  if (mostrar) {
+    document.getElementById(id).classList.remove("d-none");
+  } else {
+    document.getElementById(id).classList.add("d-none");
+  }
+}
 function NotificarCampos(formID) {
   let ret = true;
   document
@@ -81,7 +88,7 @@ async function NotificarCamposAsync(formID) {
   }
   return ret;
 }
-function LimparNotificacoes(formID) {
+async function LimparNotificacoesAsync(formID) {
   document
     .querySelectorAll(
       `#${formID} input, #${formID} textarea, #${formID} select`
@@ -92,7 +99,7 @@ function LimparNotificacoes(formID) {
       elemento.classList.remove("is-valid");
     });
 }
-async function LimparNotificacoesAsync(formID) {
+function LimparNotificacoes(formID) {
   document
     .querySelectorAll(
       `#${formID} input, #${formID} textarea, #${formID} select`
@@ -115,18 +122,12 @@ function RemoverLoad() {
 function SetarCampoValor(id, value) {
   document.getElementById(id).value = value;
 }
-function PegarValor(id) {
-  return document.getElementById(id).value;
+function PegarValor(id_usuario) {
+  return document.getElementById(id_usuario).value;
 }
-function MostrarElemento(id, mostrar) {
-  if (mostrar) {
-    document.getElementById(id).classList.remove("d-nona");
-  } else {
-    document.getElementById(id).classList.add("d-none");
-  }
-}
+
 //#endregion
-//#region Funções
+//#region Funções JWT
 function AddTnk(t) {
   localStorage.setItem("user_tnk", t);
 }

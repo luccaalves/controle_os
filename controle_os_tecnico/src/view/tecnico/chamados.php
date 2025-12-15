@@ -2,6 +2,13 @@
 
 include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
 
+//echo $_SERVER["PHP_SELF"] . PHP_EOL;
+// Imprime o nome do arquivo do script atualmente em execução.
+
+//echo $_SERVER['DOCUMENT_ROOT']. PHP_EOL;
+// Imprime o diretorio raiz do servidor web.
+// Esse caminho absoluto pode ser util para referenciar arquivos ou incluir outros scripts usando o caminho completo.
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,6 +30,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
         include_once PATH . 'template/includes/_menu.php';
         include_once PATH . 'template/includes/_topo.php';
         ?>
+
         <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
@@ -52,7 +60,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                                 </select>
                             </form>
                         </div>
-                        <button type="button" class="btn btn-success" onclick="FiltrarChamadoAJAX()">Pesquisar</button>
+                        <button class="btn btn-success" onclick="FiltrarChamadoAJAX()">Pesquisar</button>
                     </div>
                 </div>
             </section>
@@ -78,54 +86,23 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                                         </div>
                                     </div>
                                     <div class="card-body table-responsive p-0">
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Data da Abertura</th>
-                                                    <th>Funcionário</th>
-                                                    <th>Equipamento</th>
-                                                    <th>Problema</th>
-                                                    <th>Data do Atendimento</th>
-                                                    <th>Técnico</th>
-                                                    <th>Data do Encerramento</th>
-                                                    <th>Laudo</th>
-                                                    <th>Ação</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>
-                                                        <a href="" class=" btn bg-gradient-primary" data-toggle="modal" data-target="#modal-detalhes" >Ver Mais</a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                        <table class="table table-hover" id="table_result" style="text-align: center;">
+
                                         </table>
                                     </div>
                                 </div>
-                                <?php
-                                include_once'modal/detalhes_chamado.php';
-                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-
-        </section>
-
         <?php
         include_once PATH . 'template/includes/_footer.php';
         ?>
-
+        <?php
+        include_once 'modal/detalhes_chamados.php';
+        ?>
     </div>
     <script src="../../resource/ajax/chamado_ajax.js"></script>
 </body>

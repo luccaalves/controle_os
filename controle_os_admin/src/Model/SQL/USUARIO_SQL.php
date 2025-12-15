@@ -103,21 +103,22 @@ class USUARIO_SQL
     }
     public static function DETALHAR_USUARIO_SQL()
     {
-        $sql = 'SELECT usu.id,
+        $sql = 'SELECT usu.id as id_usuario,
                         usu.nome_usuario,
-                        usu.cpf_usuario,
-                        usu.email_usuario,
-                        usu.tel_usuario,
                         usu.tipo_usuario,
+                        usu.cpf_usuario,
+                        usu.tel_usuario,
+                        usu.email_usuario,
+                        tec.nome_empresa,
+                        fun.setor_id,
+                        se.nome_setor,
                         en.rua,
                         en.bairro,
                         en.cep,
-                        en.id,
+                        cid.id AS id_cidade,
                         cid.nome_cidade,
                         est.sigla_estado,
-                        tec.nome_empresa,
-                        fun.setor_id,
-                        se.nome_setor
+                        en.id as cod_endereco
                     FROM tb_usuario AS usu
                 INNER JOIN tb_endereco AS en
                     ON usu.id = en.usuario_id
@@ -138,7 +139,7 @@ class USUARIO_SQL
     public static function ALTERAR_USUARIO_SQL(): string
     {
         $sql = 'UPDATE 
-                    tb_usuario
+                    tb_usuario as usu
                 SET 
                     nome_usuario = ?,
                     email_usuario = ?,
@@ -146,10 +147,11 @@ class USUARIO_SQL
                     senha_usuario = ?,
                     tel_usuario = ?
                 WHERE 
-                    id = ?';
+                    usu.id = ?';
 
         return $sql;
     }
+
     public static function ALTERAR_FUNCIONARIO_SQL()
     {
         $sql = 'UPDATE tb_funcionario SET setor_id = ? WHERE usuario_id = ?;';
@@ -176,7 +178,7 @@ class USUARIO_SQL
     public static function ALTERAR_SENHA_SQL()
     {
         $sql = 'UPDATE tb_usuario 
-                SET senha_usuario
+                SET senha_usuario = ?
                 WHERE id = ?';
         return $sql;
     }

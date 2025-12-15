@@ -50,7 +50,6 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                                 <label>Equipamento</label>
                                 <select name="equipamento" id="equipamento" class="form-control obg">
                                     <option value="">Selecione</option>
-                                    <option value="1">Teste 1</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -67,7 +66,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
     </div>
     <script src="../../resource/ajax/chamado_ajx.js"></script>
     <script>
-        CarregarEquiamentosSetor();
+        CarregarEquipamentosSetorAJAX();
     </script>
 </body>
 

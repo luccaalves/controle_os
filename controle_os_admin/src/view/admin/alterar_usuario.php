@@ -37,8 +37,8 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
                     </div>
                     <div class="card-body">
                         <form action="novo_usuario.php" method="POST" id="formCAD">
-                            <input type="hidden" id="codUsuario" value="<?= $dados['id'] ?>">
-                            <input type="hidden" id="codEndereco" value="<?= $dados['id'] ?>">
+                            <input type="hidden" id="codUsuario" value="<?= $dados['id_usuario'] ?>">
+                            <input type="hidden" id="codEndereco" value="<?= $dados['cod_endereco'] ?>">
                             <input type="hidden" id="tipoUsuario" value="<?= $dados['tipo_usuario'] ?>">
 
                             <div class="form-group">
@@ -87,8 +87,9 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
                                         <label for="setor">Setor:</label>
                                         <select class="form-control obg" name="setor" id="setor">
                                             <?php foreach ($setores as $item) { ?>
-                                                <option value="<?= $item['id'] ?>" <?= $item['id'] == $dados['id'] ? 'selected' : '' ?>>
-                                                    <?= $item['nome_setor'] ?>
+                                                <option value="<?= $item['id'] ?>" 
+                                                <?= $item['id'] == $dados['setor_id'] ? 'selected' : '' ?>>
+                                                <?= $item['nome_setor'] ?>
                                                 </option>
                                             <?php } ?>
                                         </select>

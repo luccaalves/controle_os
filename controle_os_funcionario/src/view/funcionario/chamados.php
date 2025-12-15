@@ -60,7 +60,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                                 </select>
                             </form>
                         </div>
-                        <button type="button" class="btn btn-success" onclick="FiltrarChamadoAJAX()">Pesquisar</button>
+                        <button class="btn btn-success" onclick="FiltrarChamadoAJAX()">Pesquisar</button>
                     </div>
                 </div>
             </section>
@@ -86,41 +86,11 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                                         </div>
                                     </div>
                                     <div class="card-body table-responsive p-0">
-                                        <table class="table table-hover" id="table_result">
-                                            <thead>
-                                                <tr>
-                                                    <th>Data da Abertura</th>
-                                                    <th>Funcionário</th>
-                                                    <th>Equipamento</th>
-                                                    <th>Problema</th>
-                                                    <th>Data do Atendimento</th>
-                                                    <th>Técnico</th>
-                                                    <th>Data do Encerramento</th>
-                                                    <th>Laudo</th>
-                                                    <th>Ação</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>[ Exemplo ]</td>
-                                                    <td>
-                                                        <a href="" class=" btn bg-gradient-primary" data-toggle="modal" data-target="#modal-detalhes">Ver Mais</a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                        <table class="table table-hover" id="table_result" style="text-align: center;">
+
                                         </table>
                                     </div>
                                 </div>
-                                <?php
-                                include_once 'modal/detalhes_chamado.php';
-                                ?>
                             </div>
                         </div>
                     </div>
@@ -130,7 +100,11 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
         <?php
         include_once PATH . 'template/includes/_footer.php';
         ?>
+        <?php
+        include_once 'modal/detalhes_chamados.php';
+        ?>
     </div>
+    <script src="../../resource/ajax/chamado_ajx.js"></script>
 </body>
 
 </html>

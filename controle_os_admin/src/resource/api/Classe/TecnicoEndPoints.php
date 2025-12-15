@@ -28,14 +28,14 @@ class TecnicoEndPoints extends ApiRequest
     {
         return method_exists($this, $endpoint);
     }
-    public function ValidarLoginApi()
+    public function ValidarLoginAPI()
     {
         return $this->ctrl_user->ValidarLoginApiCtrl(
             $this->params['login'],
             $this->params['senha']
         );
     }
-    public function DetalharUsuarioApi()
+    public function DetalharUsuarioAPI()
     {
         if (Util::AuthenticationTokenAccess()) {
             $dados_usuario = $this->ctrl_user->DetalharUsuarioCtrl($this->params['id_user']);
@@ -44,30 +44,32 @@ class TecnicoEndPoints extends ApiRequest
             return NAO_AUTORIZADO;
         }
     }
-    public function AlterarMeusDadosApi()
+    public function AlterarMeusDadosAPI()
     {
         if (Util::AuthenticationTokenAccess()) {
             $vo = new TecnicoVO;
 
-            $vo->setNomeEmpresa($this->params['empresa']);
-            $vo->setId($this->params['id_usuario']);
-            $vo->setNome($this->params['nome']);
-            $vo->setTipo($this->params['tipo_usuario']);
-            $vo->setEmail($this->params['email']);
-            $vo->setCpf($this->params['cpf']);
-            $vo->setTelefone($this->params['telefone']);
-            $vo->setRua($this->params['rua']);
-            $vo->setBairro($this->params['bairro']);
-            $vo->setCep($this->params['cep']);
-            $vo->setCidade($this->params['cidade']);
-            $vo->setEstado($this->params['estado']);
+            $vo->setNomeEmpresa($this->params['empresa'] ?? null);
+            $vo->setId($this->params['id_usuario'] ?? null);
+            $vo->setNome($this->params['nome'] ?? null);
+            $vo->setTipo((int)$this->params['tipo_usuario']);
+            $vo->setEmail($this->params['email'] ?? null);
+            $vo->setCpf($this->params['cpf'] ?? null);
+            $vo->setTelefone($this->params['telefone'] ?? null);
+
+            $vo->setIdCidade($this->params['id_endereco'] ?? 0);
+            $vo->setRua($this->params['rua'] ?? null);
+            $vo->setBairro($this->params['bairro'] ?? null);
+            $vo->setCep($this->params['cep'] ?? null);
+            $vo->setCidade($this->params['cidade'] ?? null);
+            $vo->setEstado($this->params['estado'] ?? null);
 
             return $this->ctrl_user->AlterarUsuarioCtrl($vo, false);
         } else {
             return NAO_AUTORIZADO;
         }
     }
-    public function AlterarSenhaUsuarioApi()
+    public function AlterarSenhaAPI()
     {
         if (Util::AuthenticationTokenAccess()) {
             $vo = new UsuarioVO;
@@ -88,7 +90,7 @@ class TecnicoEndPoints extends ApiRequest
             return NAO_AUTORIZADO;
         }
     }
-    public function FiltrarChamadoApi()
+    public function FiltrarChamadoAPI()
     {
         if (Util::AuthenticationTokenAccess()) {
             return (new ChamadoCtrl)->FiltrarChamadoCtrl(
@@ -98,7 +100,7 @@ class TecnicoEndPoints extends ApiRequest
             return NAO_AUTORIZADO;
         }
     }
-    public function DetalharChamadoApi()
+    public function DetalharChamadoAPI()
     {
         if (Util::AuthenticationTokenAccess()) {
             return (new ChamadoCtrl)->DetalharChamadoCtrl(
@@ -108,7 +110,7 @@ class TecnicoEndPoints extends ApiRequest
             return NAO_AUTORIZADO;
         }
     }
-    public function AtenderChamadoApi()
+    public function AtenderChamadoAPI()
     {
         if (Util::AuthenticationTokenAccess()) {
             $vo = new Chamadovo;
@@ -121,7 +123,7 @@ class TecnicoEndPoints extends ApiRequest
             return NAO_AUTORIZADO;
         }
     }
-    public function FinalizarChamadoApi()
+    public function FinalizarChamadoAPI()
     {
         if (Util::AuthenticationTokenAccess()) {
             $vo = new Chamadovo;

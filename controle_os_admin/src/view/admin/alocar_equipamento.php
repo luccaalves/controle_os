@@ -1,5 +1,8 @@
 <?php
 include_once dirname(__DIR__, 2) . '/resource/dataview/novo_equipamento_dataview.php';
+
+use Src\public\Util;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,19 +41,19 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/novo_equipamento_dataview
                     </div>
                     <div class="card-body">
                         <form action="alocar_equipamento.php" method="post" id="formCad">
-                                <div class="form-group">
-                                    <label>Selecione um Equipamento</label>
-                                    <select class="form-control obg" name="equipamento" id="equipamento">
+                            <div class="form-group">
+                                <label>Selecione um Equipamento</label>
+                                <select class="form-control obg" name="equipamento" id="equipamento">
                                     <!-- Carregados pelo Dataview -->
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Selecione um Setor</label>
-                                    <select class="form-control obg" name="setor" id="setor">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Selecione um Setor</label>
+                                <select class="form-control obg" name="setor" id="setor">
                                     <!-- Carregados pelo Dataview -->
-                                    </select>
-                                </div>
-                                <button type="button" class="btn btn-success btn-sm" name="btnSalvar" onclick=" AlocarEquipamentoAJAX('formCad');">Salvar</button>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success btn-sm" name="btnSalvar" onclick=" AlocarEquipamentoAJAX('formCad');">Salvar</button>
                         </form>
                     </div>
                 </div>
@@ -63,8 +66,8 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/novo_equipamento_dataview
     include_once PATH . 'template/includes/_msg.php';
     ?>
 
-    <script src="../../resource/ajax/novo_equipamento_ajax.js"></script>
     <script src="../../resource/ajax/setor_usuario_ajax.js"></script>
+    <script src="../../resource/ajax/novo_equipamento_ajax.js"></script>
     <script>
         SelecionarSetorAJAX();
         SelecionarEquipamentoDisponivelAJAX();

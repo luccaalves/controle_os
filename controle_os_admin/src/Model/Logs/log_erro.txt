@@ -1,5 +1,0 @@
-===============================================================================
-Data do Erro: 2025-09-08
-Hora do Erro: 17:45
-Função do Erro: AlterarUsuario
-Erro Ténico: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_usuario' in 'where clause'

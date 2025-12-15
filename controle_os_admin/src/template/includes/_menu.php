@@ -98,66 +98,6 @@ if(isset($_GET['close']) && $_GET['close'] == 1){
             </li>
           </ul>
         </li>
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-user-edit"></i>
-            <p>Funcionário<i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="meus_dados.php" class="nav-link">
-                <i class="far fa-address-card nav-icon"></i>
-                <p>Meus Dados</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="mudar_senha.php" class="nav-link">
-                <i class="fa fa-lock nav-icon"></i>
-                <p>Alterar Senha</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="novo_chamado.php" class=" nav-link">
-                <i class="fa fa-plus-square nav-icon"></i>
-                <p>Abrir Chamado</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="meus_chamados.php" class=" nav-link">
-                <i class="fa fa-spinner nav-icon"></i>
-                <p>Chamados Abertos</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-user-cog"></i>
-            <p>Técnico<i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="meus_dados.php" class="nav-link">
-                <i class="far fa-address-card nav-icon"></i>
-                <p>Meus Dados</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="mudar_senha.php" class="nav-link">
-                <i class="fa fa-lock nav-icon"></i>
-                <p>Alterar Senha</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="consultar_chamado.php" class=" nav-link">
-                <i class="fa fa-search nav-icon"></i>
-                <p>Consultar Chamados</p>
-              </a>
-            </li>
-          </ul>
-        <li class="nav-item">
           <a href="../../template/includes/_menu.php?close=1" class="nav-link">
             <i class="fa fa-power-off nav-icon"></i>
             <p>Sair</p>

@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: http://controle_os_funcionario.test");
+header("Access-Control-Allow-Origin: http://controle_os_tecnico.test");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Credentials: true");
@@ -21,7 +21,7 @@ if (!$obj->CheckMethod()) {
 
 // Recebe dados
 $recebido = getallheaders();
-$json = ($recebido['Content-Type'] ?? '') === 'application/json';
+$json = $recebido['Content-Type'] == 'application/json' ? true : false;
 
 if ($json) {
     $dados = file_get_contents('php://input');

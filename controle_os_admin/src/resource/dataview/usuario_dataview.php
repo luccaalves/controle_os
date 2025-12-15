@@ -134,7 +134,6 @@ if (isset($_POST['verificarEmailDuplicado'])) {
 
     // Dados de Endereço!
     $vo->setIdCidade($_POST['codEndereco']);
-
     $vo->setRua($_POST['rua']);
     $vo->setBairro($_POST['bairro']);
     $vo->setCEP($_POST['cep']);

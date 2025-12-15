@@ -40,9 +40,10 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <form action="meus_dados.php" id="formALT" method="post">
-                                <input type="hidden" id="cod_endereco">
-                                <input type="hidden" id="tipo_usuario">
+                             <form action="meus_dados.php" id="formALT" method="post">
+                                <input type="hidden" name="id_usuario" id="id_usuario" value="">
+                                <input type="hidden" name="cod_endereco" id="cod_endereco" value="">
+                                <input type="hidden" id="tipo_usuario" name="tipo_usuario" value="">
 
                                 <div class="row">
                                     <div class="form-group col-md-9">
@@ -57,22 +58,22 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label>CPF</label>
-                                        <input disabled type="text" class="form-control" name="cpf" id="cpf" placeholder="Digite aqui o CPF...">
+                                        <input disabled type="text" class="form-control" onblur="ValidarCpf(this.value)" name="cpf" id="cpf" placeholder="Digite aqui o CPF...">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>E-mail</label>
-                                        <input disabled type="email" class="form-control" name="email" id="email" placeholder="Digite aqui O email...">
+                                        <input disabled type="email" class="form-control" onchange="VerificarEmailCadastrado(this.value)" name="email" id="email" placeholder="Digite aqui O email...">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Nome da Empresa</label>
-                                    <input disabled class="form-control" name="nome_empresa" id="nome_empresa">
+                                    <input disabled class="form-control" onchange="VerificarEmailCadastrado(this.value)" name="empresa" id="empresa" placeholder="Digite o nome da empresa... ">
                                 </div>
 
                                 <div class="form-group">
                                     <label>CEP</label>
-                                    <input type="text" autocomplete="off" class="form-control obg cep num" name="cep" id="cep" placeholder="Digite aqui...">
+                                    <input type="text" autocomplete="off" class="form-control obg cep num" onblur="PesquisarCep(this.value)" name="cep" id="cep" placeholder="Digite aqui...">
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
@@ -95,7 +96,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                                     </div>
                                 </div>
 
-                                <button type="button" id="btn_alterar" class="btn btn-success" name="btn_cadastrar" onclick="GravarMeusDados('formALT')">Alterar</button>
+                                <button type="button" id="btn_alterar" class="btn btn-success" name="btn_cadastrar" onclick="GravarMeusDadosApi('formALT')">Alterar</button>
                             </form>
                         </div>
                     </div>
@@ -111,7 +112,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
     <script src="../../resource/js/buscar_cep.js"></script>
     <script src="../../template/mask/jquery.mask.min.js"></script>
     <script src="../../template/mask/mask.js"></script>
-    <script src="../../resource/ajax/usuario_ajx.js"></script>
+    <script src="../../resource/ajax/usuario_ajax.js"></script>
     <script>
         DetalharMeusDados();
     </script>

@@ -2,14 +2,17 @@
 
 namespace Src\Model\SQL;
 
-class NOVO_EQUIPAMENTO_SQL{
-    public static function CADASTRAR_EQUIPAMENTO_SQL(){
+class NOVO_EQUIPAMENTO_SQL
+{
+    public static function CADASTRAR_EQUIPAMENTO_SQL()
+    {
         $sql =  'INSERT INTO tb_equipamento(identificacao, descricao, situacao, tipo_id, modelo_id) VALUES(?, ?, ?, ?, ?)';
 
         return $sql;
     }
 
-    public static function FILTRAR_EQUIPAMENTO_SQL($id_tipo, $id_modelo){
+    public static function FILTRAR_EQUIPAMENTO_SQL($id_tipo, $id_modelo)
+    {
         $sql = 'SELECT eqp.id as id_equipamento, 
                                 identificacao, 
                                 descricao, 
@@ -27,11 +30,11 @@ class NOVO_EQUIPAMENTO_SQL{
 
         $condicao = '';
 
-        if ($id_tipo != ''){
+        if ($id_tipo != '') {
             $condicao = ' WHERE eqp.tipo_id = ?';
         }
 
-        if ($id_modelo != ''){
+        if ($id_modelo != '') {
             $condicao .= (!empty($condicao) ? ' AND ' : ' WHERE ') . 'eqp.modelo_id = ?';
         }
 
@@ -40,9 +43,10 @@ class NOVO_EQUIPAMENTO_SQL{
         return $sql;
     }
 
-    public static function SELECIONAR_EQUIPAMENTO_SQL(){
-        $sql = 'SELECT eq.id AS equipamento_id,
-                       eq.identificacao,
+    public static function SELECIONAR_EQUIPAMENTO_SQL()
+    {
+        $sql = 'SELECT eq.id as equipamento_id,
+                       identificacao,
                        ti.nome_tipo,
                        mo.nome_modelo
                     FROM tb_equipamento AS eq
@@ -56,42 +60,49 @@ class NOVO_EQUIPAMENTO_SQL{
         return $sql;
     }
 
-    public static function DETALHAR_EQUIPAMENTO_SQL(){
+    public static function DETALHAR_EQUIPAMENTO_SQL()
+    {
         $sql = 'SELECT id, identificacao, descricao, situacao, tipo_id, modelo_id FROM tb_equipamento WHERE id = ?';
 
         return $sql;
     }
 
-    public static function ALTERAR_EQUIPAMENTO_SQL(){
+    public static function ALTERAR_EQUIPAMENTO_SQL()
+    {
         $sql = 'UPDATE tb_equipamento SET identificacao = ?, descricao = ?, tipo_id = ?, modelo_id = ? WHERE id = ?;';
 
         return $sql;
     }
 
-    public static function EXCLUIR_EQUIPAMENTO_SQL(){
+    public static function EXCLUIR_EQUIPAMENTO_SQL()
+    {
         $sql = 'DELETE FROM tb_equipamento WHERE id = ?;';
 
         return $sql;
     }
 
-    public static function DESCARTE_EQUIPAMENTO_SQL(){
+    public static function DESCARTE_EQUIPAMENTO_SQL()
+    {
         $sql = 'UPDATE tb_equipamento SET data_descarte = ?, motivo_descarte = ?, situacao = ? WHERE id = ?';
 
         return $sql;
     }
 
-    public static function ALOCAR_EQUIPAMENTO_SQL(){
+    public static function ALOCAR_EQUIPAMENTO_SQL()
+    {
         $sql = 'INSERT INTO tb_alocar(data_alocar, situacao, equipamento_id, setor_id) VALUES (?, ?, ?, ?)';
 
         return $sql;
     }
 
-    public static function EQUIPAMENTOS_ALOCADO_SETOR_SQL(){
+    public static function EQUIPAMENTOS_ALOCADO_SETOR_SQL()
+    {
         $sql = 'SELECT eq.id AS equipamento_id,
                        eq.identificacao,
                        ti.nome_tipo,
                        mo.nome_modelo,
                        al.id AS alocar_id,
+                       al.situacao,
                        al.data_alocar
                     FROM tb_equipamento AS eq
                 INNER JOIN tb_tipo AS ti
@@ -104,8 +115,17 @@ class NOVO_EQUIPAMENTO_SQL{
         return $sql;
     }
 
-    public static function REMOVER_EQUIPAMENTO_SETOR_SQL(){
-        $sql = 'UPDATE tb_alocar SET data_remocao = ?, situacao = ? WHERE id = ?;';
+    public static function REMOVER_EQUIPAMENTO_SETOR_SQL()
+    {
+        
+        $sql = 'UPDATE 
+                    tb_alocar
+                SET 
+                    data_remocao = ?, 
+                    situacao = ?
+                WHERE 
+                    id = ?;';
+                    
 
         return $sql;
     }

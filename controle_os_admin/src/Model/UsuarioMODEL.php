@@ -246,7 +246,6 @@ class UsuarioMODEL extends Conexao
                     $sql->bindValue($i++, $vo->getNomeEmpresa());
                     $sql->bindValue($i++, $vo->getId());
                     $sql->execute();
-
                     break;
             }
 
@@ -321,8 +320,8 @@ class UsuarioMODEL extends Conexao
         $sql->bindValue($i++, $vo->getId());
 
         try {
-            $sql->execte();
-            return -1;
+            $sql->execute();
+            return 1;
         } catch (Exception $ex) {
             $vo->setErroTecnico($ex->getMessage());
             parent::GravarErroLog($vo);

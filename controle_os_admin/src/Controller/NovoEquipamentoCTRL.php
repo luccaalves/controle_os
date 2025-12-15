@@ -32,12 +32,12 @@ class NovoEquipamentoCTRL
         return $this->model->FiltrarNovoEquipamentoMODEL($id_tipo, $id_modelo, SITUACAO_EQUIPAMENTO_REMOVIDO);
     }
 
-    public function SelecionarEquipamentoDisponivelCTRL() : array | string{
+    public function SelecionarEquipamentoDisponivelCTRL() : array | int{
         return $this->model->SelecionarEquipamentoDisponivelMODEL(SITUACAO_ATIVO, SITUACAO_EQUIPAMENTO_REMOVIDO);
     }
 
     public function EquipamentoAlocadoSetorCTRL(int $setor_id) : array | null{
-        return $this->model->EquipamentoAlocadoSetorMODEL($setor_id, SITUACAO_EQUIPAMENTO_ALOCADO);
+        return $this->model->EquipamentoAlocadoSetorMODEL( SITUACAO_EQUIPAMENTO_ALOCADO, $setor_id);
     }
 
     public function DetalharEquipamentoCTRL(int $id): array | string{

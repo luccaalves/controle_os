@@ -16,7 +16,7 @@ class FuncionarioEndPoints extends ApiRequest
 {
     private $ctrl_user;
     private $params;
-    
+
     public function __construct()
     {
         $this->ctrl_user = new UsuarioCTRL();
@@ -39,7 +39,7 @@ class FuncionarioEndPoints extends ApiRequest
     public function DetalharUsuarioAPI(): array | int
     {
         if (Util::AuthenticationTokenAccess()) {
-            $dados_usuario = $this->ctrl_user->DetalharUsuarioCTRL($this->params['id_user'] ?? null);
+            $dados_usuario = $this->ctrl_user->DetalharUsuarioCTRL($this->params['id_user']);
             return $dados_usuario;
         } else {
             return NAO_AUTORIZADO;
@@ -52,10 +52,12 @@ class FuncionarioEndPoints extends ApiRequest
             $vo->setIdsetor($this->params['setor'] ?? null);
             $vo->setId($this->params['id_usuario'] ?? null);
             $vo->setNome($this->params['nome'] ?? null);
+            $vo->setTipo((int)$this->params['tipo_usuario']);
             $vo->setEmail($this->params['email'] ?? null);
             $vo->setCpf($this->params['cpf'] ?? null);
             $vo->setTelefone($this->params['telefone'] ?? null);
 
+            $vo->setIdCidade((int)($this->params['id_endereco'] ?? 0));
             $vo->setRua($this->params['rua'] ?? null);
             $vo->setBairro($this->params['bairro'] ?? null);
             $vo->setCep($this->params['cep'] ?? null);
@@ -70,12 +72,11 @@ class FuncionarioEndPoints extends ApiRequest
     }
     public function AlterarSenhaAPI()
     {
-
         if (Util::AuthenticationTokenAccess()) {
             $vo = new UsuarioVO();
 
-            $vo->setId($this->params['usuario_id']);
-            $vo->setSenha($this->params['senha_usuario']);
+            $vo->setId($this->params['cod_usuario']);
+            $vo->setSenha($this->params['nova_senha']);
 
             return $this->ctrl_user->AlterarSenhaCTRL($vo, false);
         } else {
@@ -93,7 +94,7 @@ class FuncionarioEndPoints extends ApiRequest
     public function ListarEquipamentosAlocadosSetorAPI()
     {
         if (Util::AuthenticationTokenAccess()) {
-            return (new NovoEquipamentoCTRL);
+            return (new NovoEquipamentoCTRL)->EquipamentoAlocadoSetorCTRL($this->params['setor_id']);
         } else {
             return NAO_AUTORIZADO;
         }
@@ -103,7 +104,7 @@ class FuncionarioEndPoints extends ApiRequest
         if (Util::AuthenticationTokenAccess()) {
             $vo = new ChamadoVO();
             $vo->setAlocarId($this->params['alocar_id']);
-            $vo->setFuncionarioId($this->params['funcrionario_id']);
+            $vo->setFuncionarioId($this->params['func_id']);
             $vo->setProblema($this->params['problema']);
 
             return (new ChamadoCTRL)->AbrirChamadoCTRL($vo);

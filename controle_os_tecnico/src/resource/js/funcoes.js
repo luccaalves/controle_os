@@ -1,17 +1,17 @@
 //#region FUNÇÕES DA API
 function BASE_URL_API() {
-  return "/controle_os_admin/src/resource/api/tecnico_api.php";
+    return "http://controle_os.test/controle_os_admin/src/resource/api/tecnico_api.php";
 }
 function HEADER_SEM_AUTENTICACAO() {
   const header = {
     "Content-Type": "application/json",
-    Authozation: "Bearer " + GetTnk(),
   };
   return header;
 }
 function HEADER_COM_AUTENTICACAO() {
   const header = {
     "Content-Type": "application/json",
+    Authorization: "Bearer " + GetTnk(),
   };
   return header;
 }
@@ -19,19 +19,29 @@ function UsuarioLogado() {
   const dados = GetTnkValue();
   return dados.cod_user;
 }
-function CodigoSetorLogado() {
-  return 2;
-}
 //#endregion
-
 //#region FUNÇÕES GENERICAS FORMULARIO
 function BASE_URL_INTRANET() {
   return "http://controle_os.test/controle_os_tecnico/src/view/";
+}
+function HabilitarCampo(id, bool_habilitado) {
+    if(bool_habilitado){
+        document.getElementById(id).removeAttribute("disabled");
+    }else{
+        document.getElementById(id).setAttribute("disabled", "");
+    }
 }
 function RedirecionarPagina(page, segundos) {
   setTimeout(() => {
     window.location = BASE_URL_INTRANET() + page + ".php";
   }, segundos * 1000);
+}
+function MostrarElemento(id, mostrar) {
+  if (mostrar) {
+    document.getElementById(id).classList.remove("d-none");
+  } else {
+    document.getElementById(id).classList.add("d-none");
+  }
 }
 function NotificarCampos(formID) {
   let ret = true;
@@ -81,7 +91,7 @@ async function NotificarCamposAsync(formID) {
   }
   return ret;
 }
-function LimparNotificacoes(formID) {
+async function LimparNotificacoesAsync(formID) {
   document
     .querySelectorAll(
       `#${formID} input, #${formID} textarea, #${formID} select`
@@ -92,7 +102,7 @@ function LimparNotificacoes(formID) {
       elemento.classList.remove("is-valid");
     });
 }
-async function LimparNotificacoesAsync(formID) {
+function LimparNotificacoes(formID) {
   document
     .querySelectorAll(
       `#${formID} input, #${formID} textarea, #${formID} select`
@@ -118,19 +128,9 @@ function SetarCampoValor(id, value) {
 function PegarValor(id) {
   return document.getElementById(id).value;
 }
-function MostrarElemento(id, mostrar) {
-  if (mostrar) {
-    document.getElementById(id).classList.remove("d-nona");
-  } else {
-    document.getElementById(id).classList.add("d-none");
-  }
-}
-function HabilitarCampo(id, bool_habilitado) {
-  if (bool_habilitado) document.getElementById(id).removeAttribute("disabled");
-  else document.getElementById(id).setAttribute("disabled", "");
-}
+
 //#endregion
-//#region Funções
+//#region Funções JWT
 function AddTnk(t) {
   localStorage.setItem("user_tnk", t);
 }
@@ -173,6 +173,7 @@ function Sair() {
   RedirecionarPagina("acesso/login");
 }
 function Verify() {
-  if (localStorage.getItem("user_tnk") === null) Sair();
+  if (localStorage.getItem("user_tnk") === null)
+     Sair();
 }
 //#endregion

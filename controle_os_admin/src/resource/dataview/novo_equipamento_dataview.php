@@ -12,6 +12,17 @@ use Src\VO\EquipamentoVO;
 
 $ctrl = new NovoEquipamentoCTRL;
 
+if (isset($_POST['selecionarEquipamentoDisponivel'])) {
+    $equipamentos = $ctrl->SelecionarEquipamentoDisponivelCTRL();
+    echo '<option value="">Selecione</option>';
+    foreach ($equipamentos as $item) {
+        echo '<option value="' . $item['equipamento_id'] . '">';
+        echo $item['identificacao'] . ' | ' . $item['nome_tipo'] . ' | ' . $item['nome_modelo'];
+        echo '</option>';
+    }
+    exit;
+}
+
 if (isset($_POST['btnGravar']) && $_POST['btnGravar'] == 'Cadastrar') {
     $vo = new EquipamentoVO();
 
@@ -114,14 +125,6 @@ if (isset($_POST['btnGravar']) && $_POST['btnGravar'] == 'Cadastrar') {
     $ret = $ctrl->ExcluirEquipamentoCTRL($vo);
 
     echo $ret;
-} else if (isset($_POST['btnExcluir']) && $_POST['btnExcluir'] == 'RemoverEquipamento') {
-    $vo = new AlocarVo();
-
-    $vo->setId($_POST['id_equipamento']);
-
-    $ret = $ctrl->RemoverEquipamentoCTRL($vo);
-
-    echo $ret;
 } else if (isset($_POST['btnDescarte'])) {
     $vo = new EquipamentoVO();
 
@@ -145,17 +148,17 @@ if (isset($_POST['btnGravar']) && $_POST['btnGravar'] == 'Cadastrar') {
     $vo = new AlocarVo();
 
     $vo->setIdEquipamento(($_POST['id_equipamento']));
-    $vo->setIdSetor(($_POST['id']));
+    $vo->setIdSetor(($_POST['id_setor']));
 
     $ret = $ctrl->AlocarEquipamentoCTRL($vo);
 
     echo $ret;
 } else if (isset($_POST['consultarEquipamentoAlocado'])) {
-    // var_dump($_POST['id_setor']);
-    $equipamentos = $ctrl->EquipamentoAlocadoSetorCTRL(($_POST['id'])); ?>
+
+    $equipamentos = $ctrl->EquipamentoAlocadoSetorCTRL(((int)$_POST['id_setor'])); ?>
     <thead>
         <tr>
-            <th>Nome do Equipamento</th>
+            <th>Equipamento</th>
             <th>Data da Locação</th>
             <th>Ação</th>
         </tr>
@@ -166,18 +169,19 @@ if (isset($_POST['btnGravar']) && $_POST['btnGravar'] == 'Cadastrar') {
                 <td><?= 'Identificação: ' . $item['identificacao'] . ' - ' . $item['nome_tipo'] . ' - ' . $item['nome_modelo'] ?></td>
                 <td><?= $item['data_alocar'] ?></td>
                 <td>
-                    <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-excluir" onclick="CarregarModalExcluir('<?= $item['equipamento_id'] ?>' , '<?= 'Identificação: ' . $item['identificacao'] . ' - ' . $item['nome_tipo'] . ' - ' . $item['nome_modelo'] ?>')">Remover do Setor</a>
+                    <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-excluir" onclick="CarregarModalExcluir('<?= $item['alocar_id'] ?>' , '<?= 'Identificação: ' . $item['identificacao'] . ' - ' . $item['nome_tipo'] . ' - ' . $item['nome_modelo'] ?>')">Remover do Setor</a>
                 </td>
             </tr>
         <?php } ?>
     </tbody>
 
-<?php } else if (isset($_POST['removerEquipamentoSetor'])) {
-    $vo = new AlocarVo();
+<?php  } else if (isset($_POST['btnExcluir']) && $_POST['btnExcluir'] == 'RemoverEquipamento') {
 
-    $vo->setId(($_POST['id']));
+        $vo = new AlocarVo();
 
-    $ret = $ctrl->RemoverEquipamentoCTRL(($vo));
+        $vo->setId((int)$_POST['id_excluir']);
 
-    echo $ret;
+        $ret = $ctrl->RemoverEquipamentoCTRL($vo);
+
+        echo $ret;
 } ?>

@@ -115,6 +115,8 @@ class UsuarioCTRL
             return 0;
         } else {
             return $this->model->DetalharUsuarioMODEL($id);
+            var_dump($dados_usuario);
+            return $dados_usuario;
         }
     }
     public function AlterarUsuarioCTRL($vo, bool $tem_sessao = true): int
@@ -153,14 +155,13 @@ class UsuarioCTRL
     }
     public function AlterarSenhaCTRL(UsuarioVO $vo, bool $tem_sessao = true): int
     {
-        if (empty($vo->getId()) || empty($vo->getSenha)) {
+        if (empty($vo->getId()) || empty($vo->getSenha())) {
             return 0;
         }
 
         $vo->setSenha(Util::CriptografarSenha($vo->getSenha()));
         $vo->setCodLogado($tem_sessao ? Util::UsuarioLogado() : $vo->getId());
         $vo->setErroFuncao(ALTERAR_SENHA_USUARIO);
-        $vo->getCodLogado($vo->getId());
 
         return $this->model->AlterarSenhaMODEL($vo);
     }

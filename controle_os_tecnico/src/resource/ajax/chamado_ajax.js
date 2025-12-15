@@ -10,7 +10,7 @@ async function DetalharChamadoAJAX(id_chamado) {
       const response = await fetch(BASE_URL_API(), {
         method: "POST",
         headers: HEADER_COM_AUTENTICACAO(),
-        BODY: json.stringify(dadosEnviar),
+        body: JSON.stringify(dadosEnviar),
       });
       if (!response.ok) throw new Error(MSG_ERRO_CALL_API);
 
@@ -47,22 +47,22 @@ async function DetalharChamadoAJAX(id_chamado) {
         case SITUACAO_AGUARDANDO:
           MostrarElemento("tecAtendimento", false);
           MostrarElemento("tecEncerramento", false);
-          MostrarElemento("btn_acao_iniciar", true);
-          MostrarElemento("btn_acao_encerrar", false);
+          MostrarElemento("btn_acao", true);
+          MostrarElemento("btn_finalizar", false);
           break;
 
         case SITUACAO_EM_ATENDIMENTO:
           MostrarElemento("tecAtendimento", true);
           MostrarElemento("tecEncerramento", false);
-          MostrarElemento("btn_acao_iniciar", false);
-          MostrarElemento("btn_acao_encerrar", true);
+          MostrarElemento("btn_acao", false);
+          MostrarElemento("btn_finalizar", true);
           break;
 
         case SITUACAO_ENCERRADO:
           MostrarElemento("tecAtendimento", true);
           MostrarElemento("tecEncerramento", true);
-          MostrarElemento("btn_acao_iniciar", false);
-          MostrarElemento("btn_acao_encerrar", false);
+          MostrarElemento("btn_acao", false);
+          MostrarElemento("btn_finalizar", false);
           HabilitarCampo("laudo", false);
           break;
 
@@ -97,14 +97,14 @@ async function FiltrarChamadoAJAX() {
     }
 
     const objDados = await response.json();
-    if (objDados.result == NAO_AUTORIZADO) {
+    const chamados = objDados.result;
+
+    if (objDados.result === NAO_AUTORIZADO) {
       Sair();
       return;
     }
-    console.log(chamados);
-    const chamados = objDados.result;
     if (chamados.length === 0) {
-      Mensagem(MSG_DADOS_NAO_ENCONTRADOS, COR_MSG_INFO);
+      MensagemCustomizada(MSG_DADOS_NAO_ENCONTRADOS, COR_MSG_INFO);
       return;
     }
 
@@ -123,29 +123,20 @@ async function FiltrarChamadoAJAX() {
     let data_tr = "";
 
     chamados.forEach((item) => {
-      situacao = VerSituacao(item.data_atendimento, item.data_encerramento);
+      const situacao = VerSituacao(item.data_atendimento, item.data_encerramento);
       data_tr += ` <tr>
-                    <td>`;
-      data_tr += `<a href="#" onclick="DetalharChamadoAJAX(${item.chamado_id})" class="btn btn-warnig btn-sm" data-toggle="modal" data-target="#modal-datelhes"></a>`;
-      data_tr += `<td/>
+                        <td><a href="#" onclick="DetalharChamadoAJAX(${item.chamado_id})" data-toggle="modal" data-target="#modal-chamados">Ver Detalhes</a></td>
                         <td>${item.data_abertura}</td>
                         <td>${item.funcionario}</td>
                         <td>${situacao}</td>
-                        <td>${
-                          item.nome_tipo +
-                          " / " +
-                          item.nome_modelo +
-                          " / " +
-                          item.identificacao
-                        }</td>
+                        <td>${item.nome_tipo + " / " + item.nome_modelo + " / " + item.identificacao}</td>
                         <td>${item.problema}</td>
                     </tr>`;
     });
-    `<td><a class = "btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-detalhes">Ver Detalhes</a></td>`;
 
     tab_content += data_tr;
     tab_content += "</tbody>";
-    tab_result.innerHTML = teb_content;
+    tab_result.innerHTML = tab_content;
     MostrarElemento("resultado", true);
   } catch (error) {
     MensagemCustomizada(error.message, COR_MSG_ERRO);

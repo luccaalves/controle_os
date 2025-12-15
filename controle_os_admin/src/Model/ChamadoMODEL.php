@@ -20,7 +20,7 @@ class ChamadoMODEL extends Conexao
     {
         $sql = $this->conexao->prepare(CHAMADO_SQL::ABRIR_CHAMADO_SQL());
 
-        $i = 0;
+        $i = 1;
         $sql->bindValue($i++, $vo->getDataAbertura());
         $sql->bindValue($i++, $vo->getHoraAbertura());
         $sql->bindValue($i++, $vo->getProblema());
@@ -37,7 +37,7 @@ class ChamadoMODEL extends Conexao
             $sql->bindValue($i++, $vo->getAlocarId());
             $sql->execute();
             $this->conexao->commit();
-            return -1;
+            return 1;
         } catch (\Exception $ex) {
             $vo->setErroTecnico($ex->getMessage());
             parent::GravarErroLog($vo);
@@ -64,7 +64,7 @@ class ChamadoMODEL extends Conexao
         $sql = $this->conexao->prepare(CHAMADO_SQL::DETALHAR_CHAMADO_SQL());
         $sql->bindValue(1, $id);
         $sql->execute();
-        return $sql->fethc(\PDO::FETCH_ASSOC);
+        return $sql->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function AtenderChamadoMODEL(ChamadoVO $vo): int
@@ -77,7 +77,7 @@ class ChamadoMODEL extends Conexao
         $sql->bindValue($i++, $vo->getId());
 
         try {
-            $sql->execute;
+            $sql->execute();
             return 1;
         } catch (\Exception $ex) {
             $vo->setErroTecnico($ex->getMessage());
@@ -99,7 +99,7 @@ class ChamadoMODEL extends Conexao
         $this->conexao->beginTransaction();
 
         try {
-            $sql->execute;
+            $sql->execute();
             $sql = $this->conexao->prepare(CHAMADO_SQL::ATUALIZAR_ALOCAMENTO_SQL());
             $i = 1;
             $sql->bindValue($i++, $vo->getSituacao());
