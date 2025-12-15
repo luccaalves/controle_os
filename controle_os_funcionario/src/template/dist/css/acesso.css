@@ -1,0 +1,72 @@
+.access-logo {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.access-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 26px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.access-logo b {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.access-logo span {
+    display: block;
+    margin-top: 8px;
+    font-size: 16.5px;
+    font-weight: 500;
+    color: #495057;
+}
+
+/* Linha decorativa */
+.access-logo::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 16px auto 0;
+    border-radius: 3px;
+}
+
+/* ADMINISTRADOR */
+.access-admin .access-icon,
+.access-admin::after {
+    background: linear-gradient(135deg, #dc3545, #b02a37);
+}
+
+.access-admin b {
+    color: #1d3557;
+}
+
+/* FUNCIONÁRIO */
+.access-func .access-icon,
+.access-func::after {
+    background: linear-gradient(135deg, #198754, #146c43);
+}
+
+.access-func b {
+    color: #1d3557;
+}
+
+/* TÉCNICO */
+.access-tec .access-icon,
+.access-tec::after {
+    background: linear-gradient(135deg, #fd7e14, #e8590c);
+}
+
+.access-tec b {
+    color: #1d3557;
+}

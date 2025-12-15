@@ -21,9 +21,10 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
     <script>
         Verify();
     </script>
+    <title>Chamados</title>
 </head>
 
-<body class="dark-mode sidebar-mini sidebar-collapse">
+<body class="dark-mode sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper dark-mode">
         <?php
@@ -36,8 +37,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 style="color: #00BFFF;">Chamados</h1>
-                            <p>Consulte todos os seus chamados e acompanhe os atendimentos.</p>
+                            <h1 style="color: #198754;">Chamados</h1>
                         </div>
                     </div>
                     <hr>

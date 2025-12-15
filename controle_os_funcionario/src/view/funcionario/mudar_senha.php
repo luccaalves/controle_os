@@ -13,6 +13,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
   <script>
     Verify();
   </script>
+  <title>Mudar Senha</title>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -28,13 +29,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Mudar Senha</h1>
-            </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Administrativo</a></li>
-                <li class="breadcrumb-item active">Mudar Senha</li>
-              </ol>
+              <h1 style="color: #198754;">Mudar Senha</h1>
             </div>
           </div>
         </div>

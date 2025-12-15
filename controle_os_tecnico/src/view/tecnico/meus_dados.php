@@ -12,9 +12,10 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
     <script>
         Verify();
     </script>
+    <title>Meus Dados</title>
 </head>
 
-<body class="dark-mode sidebar-mini sidebar-collapse">
+<body class="dark-mode sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper dark-mode">
         <?php
@@ -27,7 +28,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 style="color: #00BFFF;">Informações Pessoais</h1>
+                            <h1 style="color: #e8590c;">Informações Pessoais</h1>
                         </div>
                     </div>
                     <hr>

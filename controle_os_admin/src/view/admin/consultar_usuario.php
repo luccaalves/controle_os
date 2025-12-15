@@ -23,7 +23,7 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Consultar Usuário</h1>
+              <h1  style="color: #dc3545;">Consultar Usuário</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">

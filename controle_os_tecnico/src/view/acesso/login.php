@@ -7,12 +7,17 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
 
 <head>
   <?php include_once PATH . 'template/includes/_head.php'; ?>
+   <link rel="stylesheet" href="../../template/dist/css/acesso.css">
 </head>
 
 <body class="hold-transition login-page">
   <div class="login-box">
-    <div class="login-logo">
-      <a href="../../index2.html"><b>Chamados dos Técnicos</b> LTE</a>
+    <div class="login-logo access-logo access-tec">
+      <div class="access-icon">
+        <i class="fas fa-tools"></i>
+      </div>
+      <b>Técnico</b>
+      <span>Atendimento e resolução de chamados</span>
     </div>
     <div class="card">
       <div class="card-body login-card-body">
@@ -20,7 +25,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
 
         <form id="formLOG" method="post">
           <div class="input-group mb-3">
-            <input id="login_usuario" name="login_usuario" class="form-control obg" placeholder="Email">
+            <input id="login_usuario" name="login_usuario" class="form-control obg" placeholder="Login">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>

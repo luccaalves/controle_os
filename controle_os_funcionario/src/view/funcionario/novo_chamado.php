@@ -13,6 +13,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
     <script>
         Verify();
     </script>
+    <title>Abrir Chamado</title>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -28,7 +29,7 @@ include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Novo Chamado</h1>
+                            <h1 style="color: #198754;">Novo Chamado</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">

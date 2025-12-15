@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a style="text-align: center;" href="../../index3.html" class="brand-link">
+  <a style="text-align: center;" href="#" class="brand-link">
     <span class="brand-text font-weight-light">Funcionário</span>
   </a>
 
