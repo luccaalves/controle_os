@@ -123,13 +123,24 @@ async function FiltrarChamadoAJAX() {
     let data_tr = "";
 
     chamados.forEach((item) => {
-      const situacao = VerSituacao(item.data_atendimento, item.data_encerramento);
+      const situacao = VerSituacao(
+        item.data_atendimento,
+        item.data_encerramento
+      );
       data_tr += ` <tr>
-                        <td><a href="#" onclick="DetalharChamadoAJAX(${item.chamado_id})" data-toggle="modal" data-target="#modal-chamados">Ver Detalhes</a></td>
+                        <td><a href="#" onclick="DetalharChamadoAJAX(${
+                          item.chamado_id
+                        })" data-toggle="modal" data-target="#modal-chamados">Ver Detalhes</a></td>
                         <td>${item.data_abertura}</td>
                         <td>${item.funcionario}</td>
                         <td>${situacao}</td>
-                        <td>${item.nome_tipo + " / " + item.nome_modelo + " / " + item.identificacao}</td>
+                        <td>${
+                          item.nome_tipo +
+                          " / " +
+                          item.nome_modelo +
+                          " / " +
+                          item.identificacao
+                        }</td>
                         <td>${item.problema}</td>
                     </tr>`;
     });
