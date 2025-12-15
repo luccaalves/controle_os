@@ -45,7 +45,6 @@ include_once dirname(__DIR__, 2) . '/resource/dataview/usuario_dataview.php';
                 <label for="exampleInputEmail1">Nome do Usuário:</label>
                 <input type="text" class="form-control" placeholder="Digite Pelo Menos 3 Caracteres para Pesquisar..." name="nomeFiltro" id="nomeFiltro" onkeyup="FiltrarUsuarioAJAX();" value="<?= isset($_GET['filtro']) ? $_GET['filtro'] : '' ?>">
               </div>
-              <button class="btn bg-gradient-primary btn-sm" name="btnPesquisar">Pesquisar</button>
             </form>
           </div>
         </div>

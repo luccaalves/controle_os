@@ -152,6 +152,7 @@ function AlterarUsuarioAJAX(formID) {
         let tipo = $("#tipoUsuario").val();
         let id_usuario = $("#codUsuario").val();
         let id_endereco = $("#codEndereco").val();
+        let nome_usuario = $("#nome").val();
 
         $.ajax({
             beforeSend: function () {
@@ -162,7 +163,7 @@ function AlterarUsuarioAJAX(formID) {
             data: {
                 btnAlterar: 'ajx',
                 tipo: tipo,
-                nome: $("#nome").val(),
+                nome: nome_usuario,
                 email: $("#email").val(),
                 cpf: $("#cpf").val(),
                 telefone: $("#telefone").val(),
@@ -178,6 +179,9 @@ function AlterarUsuarioAJAX(formID) {
             },
             success: function (ret) {
                 MostrarMensagem(ret);
+
+                // Após o sucesso da requisição, redireciona para a página desejada
+                RedirecionarPagina("consultar_usuario.php?filtro=" + encodeURIComponent(nome_usuario), 1); // Redireciona após 3 segundos
             },
             complete: function () {
                 RemoverLoad();
@@ -185,7 +189,6 @@ function AlterarUsuarioAJAX(formID) {
         })
     }
 }
-
 
 function LoginAJAX(formID){
     if(NotificarCampos(formID)){
