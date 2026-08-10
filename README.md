@@ -35,17 +35,18 @@ Esta divisão garante segregação de funções e controle de responsabilidades 
 ## 🧱 Estrutura do Projeto
 
 O repositório contém os seguintes diretórios principais:
-├── API/ # Módulos e endpoints de API para comunicação interna via JSON
-├── Controle_OS_ADM/ # Interface e lógica para usuários administradores
-├── Controle_OS_Funcionario/ # Interface de funcionários, com formulários e listagens
-├── Controle_OS_Tecnico/ # Interface específica para técnicos
-├── assets/ # Imagens, scripts e outros recursos estáticos
-├── css/ # Estilos CSS personalizados
-├── data_base/ # Scripts de banco e estrutura do MySQL
-├── images/ # Imagens do projeto
-└── index.php # Roteador inicial do sistema
 
----
+```
+├── API/                          # Módulos e endpoints de API para comunicação interna via JSON
+├── Controle_OS_ADM/              # Interface e lógica para usuários administradores
+├── Controle_OS_Funcionario/      # Interface de funcionários, com formulários e listagens
+├── Controle_OS_Tecnico/          # Interface específica para técnicos
+├── assets/                       # Imagens, scripts e outros recursos estáticos
+├── css/                          # Estilos CSS personalizados
+├── data_base/                    # Scripts de banco e estrutura do MySQL
+├── images/                       # Imagens do projeto
+└── index.php                     # Roteador inicial do sistema
+```
 
 ## 🛠️ Tecnologias Utilizadas
 
